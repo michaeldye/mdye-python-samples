@@ -1,0 +1,36 @@
+[tool.poetry]
+name="mdye-python-samples"
+version="0.1.0"
+description="Varying modern Python code samples, packaged."
+authors=[ "michael dye <m-github@divisive.info>"]
+packages=[ 
+    { include="common", from="src" },
+    { include="mdye_misc", from="src" },
+    { include="mdye_leetcode", from="src" },
+    { include="mdye_euler", from="src" }
+  ]
+
+[tool.poetry.dev-dependencies]
+pylint = "*"
+black = "*"
+pytest = "*"
+
+[tool.poetry.scripts]
+leetcode = "mdye_leetcode.solutions:run"
+euler = "mdye_euler.solutions:run"
+misc = "mdye_misc.solutions:run"
+
+[tool.poetry.dependencies]
+python = ">=3.9.0,<4"
+
+[build-system]
+requires = ["poetry-core >= 1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+python_files = "*test*.py"
+markers = [
+  "integration: marks tests with external service dependencies (deselect with \"-m 'not integration'\")"
+]
+log_cli = true
+log_cli_level = "DEBUG"
