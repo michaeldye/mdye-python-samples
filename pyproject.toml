@@ -15,11 +15,6 @@ pylint = "*"
 pytest = "*"
 black = "*"
 
-[tool.poetry.scripts]
-leetcode = "mdye_leetcode.solutions:run"
-euler = "mdye_euler.solutions:run"
-misc = "mdye_misc.solutions:run"
-
 [tool.poetry.dependencies]
 python = ">=3.9.0,<4"
 
