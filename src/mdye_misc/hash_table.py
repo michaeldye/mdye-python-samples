@@ -7,8 +7,9 @@ import random
 from typing import Optional, List, Callable
 from linked_list import Node, LinkedList
 
+
 class HashTable:
-    
+
     # Backing data structure is list with "buckets" of linkedlists; when
     # inserting, it's necessary to traverse the LinkedList looking for
     # duplicate values. This is part of a chaining hash strategy (instead of
@@ -16,7 +17,7 @@ class HashTable:
 
     # Effectiveness of the hash table at providing O(n) lookup time depends
     # on the performance of our hashing function for the stored data. We are
-    # storing strings that are to be psuedo-randomly generated with small 
+    # storing strings that are to be psuedo-randomly generated with small
     # variability in length; a content-based hash will work ok for this.
 
     _table: List[LinkedList]
@@ -37,7 +38,7 @@ class HashTable:
 
         if not self.get(val, h):
             self._table[h].prepend(Node(val))
-       
+
     def get(self, val: str, h: int = None) -> Optional[str]:
         if not h:
             h = self._hash(val)
@@ -48,7 +49,7 @@ class HashTable:
         # using h(k) = k(k + 3) mod m, where k is the key (int value if item)
         # and m is the size of the hash table
 
-        k = hash(item) # use python's built-in hash to get an int value from our item
+        k = hash(item)  # use python's built-in hash to get an int value from our item
         return (k * (k + 3)) % self._size
 
     def _hash_division(self, item: str) -> int:
@@ -72,8 +73,8 @@ if __name__ == "__main__":
     table.insert("mm")
     table.insert("mm")
 
-    assert (not table.get("zoo"))
-    assert (table.get("foo") == "foo")
+    assert not table.get("zoo")
+    assert table.get("foo") == "foo"
 
     print("Tiny table:")
     print(table)
@@ -82,7 +83,9 @@ if __name__ == "__main__":
     table2 = HashTable(64)
 
     for w in range(300):
-        w = "".join([random.choice(string.ascii_letters + string.digits) for _ in range(2, 29)])
+        w = "".join(
+            [random.choice(string.ascii_letters + string.digits) for _ in range(2, 29)]
+        )
         table2.insert(w)
 
     print(table2)

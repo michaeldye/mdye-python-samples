@@ -1,4 +1,3 @@
-
 import math
 from typing import Optional, List, Callable
 
@@ -7,11 +6,12 @@ from typing import Optional, List, Callable
 # will be the largest prime factor. Note that prime factors of a number (n)
 # will be in range [2, sqrt(n) + 1]
 
+
 def primes_range(st: int, end: int) -> List[int]:
     # clipped from internet b/c I didn't want to sieve by myself
 
     sieve = [True] * end
-    sieve[0] = False # Zero and one are not prime numbers.
+    sieve[0] = False  # Zero and one are not prime numbers.
     sieve[1] = False
 
     # Create the sieve:
@@ -47,7 +47,7 @@ def prime_finder(primes: List[int]) -> Callable[[int], int]:
     last_ix = 0
 
     def prime_fn(n: int):
-        nonlocal last_ix # this is necessary b/c we rebind the variable below and the compiler doesn't know it's closed over above?
+        nonlocal last_ix  # this is necessary b/c we rebind the variable below and the compiler doesn't know it's closed over above?
         for ix, div in enumerate(primes[last_ix:]):
             if n % div == 0:
                 last_ix = ix + 1
@@ -55,4 +55,3 @@ def prime_finder(primes: List[int]) -> Callable[[int], int]:
         return None
 
     return prime_fn
-

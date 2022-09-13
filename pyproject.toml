@@ -12,8 +12,8 @@ packages=[
 
 [tool.poetry.dev-dependencies]
 pylint = "*"
-black = "*"
 pytest = "*"
+black = "*"
 
 [tool.poetry.scripts]
 leetcode = "mdye_leetcode.solutions:run"

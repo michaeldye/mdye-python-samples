@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 ## linked list
-# 
+#
 # append: O(N) , appending 1 item requires we traverse whole list to get to end
 # prepend: O(1) , prepending just needs a few values set (references rearranged)
 # search: O(N) worst case, avg. case O(N) still? best case is O(1)
@@ -12,11 +12,12 @@
 import sys
 from typing import Any, Optional
 
+
 class Node(object):
     _next = None
     _value = None
 
-    def __init__(self, vv: int, nn: 'Node' = None):
+    def __init__(self, vv: int, nn: "Node" = None):
 
         self._next = nn
         self._value = vv
@@ -26,11 +27,11 @@ class Node(object):
         return self._value
 
     @property
-    def next_node(self) -> 'Node':
+    def next_node(self) -> "Node":
         return self._next
 
     @next_node.setter
-    def next_node(self, node: 'Node') -> None:
+    def next_node(self, node: "Node") -> None:
         self._next = node
 
     def __str__(self) -> str:
@@ -44,7 +45,7 @@ class LinkedList(object):
         # can make an empty one
         pass
 
-    def append(self, to_add: Node) -> 'LinkedList':
+    def append(self, to_add: Node) -> "LinkedList":
 
         if self.root is None:
             self.root = to_add
@@ -55,12 +56,12 @@ class LinkedList(object):
                     # now last really is end of list; iterated through all nodes to get here
                     break
                 last = last.next_node
-    
+
             last.next_node = to_add
 
         return self
 
-    def prepend(self, to_add: Node) -> 'LinkedList':
+    def prepend(self, to_add: Node) -> "LinkedList":
         to_add.next_node = self.root
         self.root = to_add
 
@@ -76,8 +77,7 @@ class LinkedList(object):
 
         return None
 
-
-    def __str__(self) -> str: 
+    def __str__(self) -> str:
         out_str = ""
 
         nn = self.root
@@ -118,7 +118,7 @@ def gen(ct: int) -> Node:
 
         if n == ct:
             return None
-        return Node(n, gen0(n+1))
+        return Node(n, gen0(n + 1))
 
     return gen0(0)
 
@@ -126,29 +126,29 @@ def gen(ct: int) -> Node:
 if __name__ == "__main__":
     print("List of Nodes generated in loop")
     print_nodes(gen_in_loop(24))
-    
+
     print("List of Nodes generated recursively")
     print_nodes(gen(24))
-    
+
     print("List generated with LinkedList append: * really slow!! *")
     la = LinkedList()
     for i in range(24):
         la.append(Node(i))
-    
+
     print("LinkedList filled using append")
     print(la)
-    
+
     lp = LinkedList()
     ct = 24
     for i in range(ct):
         lp.prepend(Node(ct - 1 - i))
-    
+
     print("LinkedList filled using prepend: plenty fast")
     print(lp)
 
     # search for a given node
-    assert (lp.search(22))
-    assert (not lp.search(2000))
-    
+    assert lp.search(22)
+    assert not lp.search(2000)
+
     print("done")
     sys.exit(0)

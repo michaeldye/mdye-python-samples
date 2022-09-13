@@ -1,4 +1,3 @@
-
 def solve(limit: int) -> int:
     prevprev = prev = ix = total = 0
 
@@ -17,5 +16,6 @@ def solve(limit: int) -> int:
             total += curr
 
         ix += 1
+
 
 # vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4

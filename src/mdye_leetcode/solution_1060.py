@@ -1,5 +1,6 @@
 from typing import List
 
+
 class Solution:
     def missingElement(self, arr: List[int], k: int) -> int:
         def distance(index: int) -> int:
