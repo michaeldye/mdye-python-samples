@@ -28,7 +28,7 @@ class HashTable:
         if not hash_fn:
             self._hash = self._hash_division
         else:
-            self._hash = self._hash_knuth_variant
+            self._hash = hash_fn
 
         self._size = size
         self._table = [LinkedList() for _ in range(size)]
