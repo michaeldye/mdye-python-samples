@@ -3,8 +3,8 @@
 [![Unit Test Status](https://github.com/michaeldye/mdye-python-samples/actions/workflows/python-app.yaml/badge.svg)](https://github.com/michaeldye/mdye-python-samples/actions)
 
 A repo of small Python code samples. Some are related to programming puzzle /
-practice sites like [LeetCode](https://leetcode.com) or [Project
-Euler](https://projecteuler.net). All code assumes a recent version of Python,
+practice sites like [LeetCode](https://leetcode.com) (in [src/mdye_leetcode](src/mdye_leetcode)) or [Project
+Euler](https://projecteuler.net) in [src/mdye_euler](src/mdye_euler). All code assumes a recent version of Python,
 like 3.9.0 or newer. (See `pyproject.toml` for precise dependency declaration).
 
 
