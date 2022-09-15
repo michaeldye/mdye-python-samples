@@ -50,20 +50,49 @@ All mature code puzzle solutions are tested by pytest. To execute tests in this 
 
     pytest
 
+    ==================================================== test session starts ====================================================
+    platform linux -- Python 3.9.13, pytest-7.1.3, pluggy-1.0.0
+    rootdir: /home/mdye/projects/mdye-python-samples, configfile: pyproject.toml
+    collected 12 items                                                                                                          
+    
+    src/mdye_euler/test/test_solution_1.py::test_solution PASSED                                                          [  8%]
+    src/mdye_euler/test/test_solution_2.py::test_solution PASSED                                                          [ 16%]
+    src/mdye_euler/test/test_solution_3.py::test_lpf_small PASSED                                                         [ 25%]
+    
+    ...
+    ==================================================== 12 passed in 0.14s =====================================================
+
+
 To execute tests for only a specific puzzle site, for example `leetcode` provide pytest with the project directory in which to search for tests:
 
     pytest ./src/mdye_leetcode
+    ==================================================== test session starts ====================================================
+    platform linux -- Python 3.9.13, pytest-7.1.3, pluggy-1.0.0
+    rootdir: /home/mdye/projects/mdye-python-samples, configfile: pyproject.toml
+    collected 8 items                                                                                                           
+    
+    src/mdye_leetcode/test/test_solution_1060.py::test_solution_5_basic PASSED                                            [ 12%]
+    src/mdye_leetcode/test/test_solution_1491.py::test_solution_1491_basic PASSED                                         [ 25%]
 
+    ...
+    ===================================================== 8 passed in 0.04s =====================================================
+    
 ### Execute miscellaneous code samples
 
 For content in `mdye_misc`, execute modules directly with the necessary cli args. For example:
 
-    ./src/mdye_misc/fib_various.py 100
-    
-    ...
+    ./src/mdye_misc/fib_various.py 20
+
+    Note: not making an effort to warm the thread so timing values may vary widely
+    {'fn_name': 'calc_fib_dp', 'time_s': '1.16825e-05'}
+    {'fn_name': 'calc_fib_memo', 'time_s': '6.65188e-05'}
+    {'fn_name': 'calc_fib_naive', 'time_s': '0.00445795'}
+    20th fib: 6765
 
 .. or:
 
-    ./heaps.py
-    
-    ...
+    ./src/mdye_misc/heaps.py 
+
+    priority order after popping top of heap each time:
+    [65, 42, 32, 22, 19, 19, 12, 7, 7, 6, 6, 5, 2, 1, 1]
+    done
