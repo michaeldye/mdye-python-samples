@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-# -*- coding: latin-1 -*-
-""" """
+# -*- coding: utf-8 -*-
 
 from typing import List, Optional
 import sys
@@ -17,8 +16,7 @@ def contains(n: int) -> bool:
         if len(arr) == 1:
             if arr[0] == n:
                 return n
-            else:
-                return None
+            return None
 
         # recur, looking at the left half of the list and then the right
         halfway = len(arr) // 2
@@ -29,8 +27,7 @@ def contains(n: int) -> bool:
 
     if _s(data, n) is None:
         return False
-    else:
-        return True
+    return True
 
 
 if __name__ == "__main__":

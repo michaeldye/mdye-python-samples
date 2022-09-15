@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from functools import wraps
 from time import time
 from typing import Callable, Any, Mapping, Optional
@@ -27,7 +29,7 @@ class TimingRecord:
         return self
 
     def report(self) -> Mapping[str, str]:
-        return {"fn_name": self.fn_name, "time_s": "{:2.6}".format(self.elapsed_time)}
+        return {"fn_name": self.fn_name, "time_s": f"{self.elapsed_time:2.6}"}
 
     def bail_if_finished(self):
         if self.elapsed_time is not None:

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from typing import List
 
 
@@ -8,8 +10,8 @@ class Solution:
 
             if index == 0:
                 return 0
-            else:
-                return arr[index] - arr[index - 1] - 1
+
+            return arr[index] - arr[index - 1] - 1
 
         missing_ct = 0
         ix = 0

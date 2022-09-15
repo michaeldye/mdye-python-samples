@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 ## a demo mutable array list in python built on the ctypes.array type
 #
@@ -14,20 +15,18 @@
 # >>> o = (ctypes.c_long * 2)(*range(2))
 # >>> help(o)
 
+import ctypes
 import sys
 
-import ctypes
-from ctypes import cast
 
-
-class LongArrayList(object):
+class LongArrayList:
     # uses a backing array that can only store signed longs (4 bytes in length, so 32bits - 1 bit for signing leaves -2,147,483,648 to 2,147,483,647 as range)
 
     _used_ct = 0
 
     def __init__(self, size: int):
-        self._back = self._new_backing(size)
-        assert len(self._back) == size
+        self.back = self._new_backing(size)
+        assert len(self.back) == size
 
     def __len__(self) -> int:
         return self._used_ct
@@ -35,8 +34,7 @@ class LongArrayList(object):
     def __getitem__(self, pos: int) -> int:
         if pos > self._used_ct or pos < 0:
             raise IndexError()
-        else:
-            return self._back[pos]
+        return self.back[pos]
 
     @staticmethod
     def _new_backing(size: int) -> ctypes.Array:
@@ -48,17 +46,17 @@ class LongArrayList(object):
 
     def _expand(self, size: int) -> None:
         # does resize and copy, sets self._back
-        old = self._back
-        self._back = self._new_backing(size)
+        old = self.back
+        self.back = self._new_backing(size)
         for ix in range(self._used_ct):
-            self._back[ix] = old[ix]
+            self.back[ix] = old[ix]
 
     def add(self, val: int) -> None:
-        if self._used_ct == len(self._back):
+        if self._used_ct == len(self.back):
             # need to make new one bigger by *2 and copy
-            self._expand(len(self._back) * 2)
+            self._expand(len(self.back) * 2)
 
-        self._back[self._used_ct] = val
+        self.back[self._used_ct] = val
         self._used_ct += 1
 
     def __str__(self) -> str:
@@ -68,7 +66,7 @@ class LongArrayList(object):
             if out_str != "":
                 out_str += ", "
 
-            out_str += f"{self._back[ix]}"
+            out_str += f"{self.back[ix]}"
 
         return out_str
 
@@ -83,16 +81,16 @@ if __name__ == "__main__":
 
     # full backing store is initialized to 0
     for ix in range(length):
-        assert a._back[ix] == 0
+        assert a.back[ix] == 0
 
     # backing store getitem is as we expect
     try:
-        a._back[length + 1]
+        a.back[length + 1]
     except IndexError:
         pass
 
     # backing storage is right size
-    assert len(a._back) == 52
+    assert len(a.back) == 52
 
     # length of arraylist is qty of used space
     assert len(a) == 0
@@ -111,7 +109,7 @@ if __name__ == "__main__":
 
     # add beyond capacity and observe that the backing storage has changed
     og_size = len(a)
-    og_back = a._back
+    og_back = a.back
     for ix in range(
         length
     ):  # already added stuff so going to original size will cause expansion
@@ -120,7 +118,7 @@ if __name__ == "__main__":
     assert og_size + length == len(a)
 
     # is will check identity
-    assert a._back is not og_back
+    assert a.back is not og_back
 
     print(a)
     print("done")

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 import sys
 from typing import Optional
@@ -21,7 +22,7 @@ from typing import Optional
 # - every complete binary tree is also balanced (w/r/t height?), but not the converse
 
 
-class MaxHeap(object):
+class MaxHeap:
     _back = []
 
     def __init__(self):

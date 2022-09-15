@@ -1,5 +1,5 @@
-# -*- coding: latin-1 -*-
-""" """
+# -*- coding: utf-8 -*-
+
 from typing import Optional, List
 
 
@@ -29,7 +29,7 @@ class Solution:
         total = 0
         count = 0
         for sval in salary:
-            if sval != low and sval != high:
+            if sval not in (low, high):
                 count += 1
                 total += sval
 

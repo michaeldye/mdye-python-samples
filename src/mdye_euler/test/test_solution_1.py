@@ -1,4 +1,4 @@
-import pytest
+# -*- coding: utf-8 -*-
 
 from mdye_euler.solution_1_list_comp import solve
 

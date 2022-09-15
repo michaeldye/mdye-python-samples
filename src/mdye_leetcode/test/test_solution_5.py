@@ -1,6 +1,9 @@
+# -*- coding: utf-8 -*-
+
 import pytest
 
 from mdye_leetcode.solution_5 import Solution
+
 
 # makes a Solution object b/c that's how leetcode rolls
 @pytest.fixture(scope="module")
@@ -20,6 +23,5 @@ def test_solution_5_odds(sol: Solution):
     assert "babab" == sol.longestPalindrome("bababa")
     assert "zpzzpz" == sol.longestPalindrome("babazpzzpz")
     assert "aca" == sol.longestPalindrome("aacabdkacaa")
-
 
 # vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4

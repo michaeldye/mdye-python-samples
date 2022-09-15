@@ -1,6 +1,4 @@
-#!/usr/bin/env python3
-# -*- coding: latin-1 -*-
-""" """
+# -*- coding: utf-8 -*-
 
 import pytest
 from mdye_leetcode.solution_1523 import Solution

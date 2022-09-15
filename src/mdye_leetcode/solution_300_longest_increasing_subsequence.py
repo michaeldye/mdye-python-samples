@@ -1,4 +1,4 @@
-# -*- coding: latin-1 -*-
+# -*- coding: utf-8 -*-
 
 # need a structure that allows low cost prepending; deque is good, so is linked list
 from collections import deque

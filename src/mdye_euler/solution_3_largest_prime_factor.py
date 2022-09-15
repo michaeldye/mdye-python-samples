@@ -1,5 +1,7 @@
+# -*- coding: utf-8 -*-
+
 import math
-from typing import Optional, List, Callable
+from typing import List, Callable
 
 # Need to repeatedly dimish given int, n, by smallest prime found that is
 # greater than all previous until no prime factors are left. The last factor
@@ -24,7 +26,7 @@ def primes_range(st: int, end: int) -> List[int]:
     # Compile the list of primes:
     primes = []
     for i in range(end):
-        if sieve[i] == True:
+        if sieve[i]:
             primes.append(i)
 
     return primes
@@ -32,15 +34,15 @@ def primes_range(st: int, end: int) -> List[int]:
 
 def lpf(n: int) -> int:
     prime_range = range(2, math.floor(math.sqrt(n)) + 1)
-    pfn = prime_finder(prime_range)
+    pfn = prime_finder(list(prime_range))
 
     while True:
         prime = pfn(n)
 
         if prime == n:
             return n
-        else:
-            n //= prime
+
+        n //= prime
 
 
 def prime_finder(primes: List[int]) -> Callable[[int], int]:
@@ -55,3 +57,5 @@ def prime_finder(primes: List[int]) -> Callable[[int], int]:
         return None
 
     return prime_fn
+
+# vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4

@@ -1,5 +1,4 @@
-# -*- coding: latin-1 -*-
-""" """
+# -*- coding: utf-8 -*-
 
 
 class Solution:
