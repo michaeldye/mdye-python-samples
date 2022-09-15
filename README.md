@@ -13,18 +13,18 @@ Given appropriate setup, you can execute tests for all puzzles and code samples 
 ```
 pytest
 
-================================================ test session starts =================================================
+================================================ test session starts ============================
 platform linux -- Python 3.9.13, pytest-7.1.3, pluggy-1.0.0
 rootdir: /home/mdye/projects/mdye-python-samples, configfile: pyproject.toml
-collected 12 items                                                                                                   
+collected 12 items                                                                                
 
-src/mdye_euler/test/test_solution_1.py::test_solution PASSED                                                   [  8%]
+src/mdye_euler/test/test_solution_1.py::test_solution PASSED                               [  8%]
 ...
-src/mdye_leetcode/test/test_solution_1060.py::test_solution_5_basic PASSED                                     [ 41%]
-...
-src/mdye_leetcode/test/test_solution_823.py::test_solution_823_deep PASSED                                     [100%]
+src/mdye_leetcode/test/test_solution_1060.py::test_solution_5_basic PASSED                 [ 41%]
+..
+src/mdye_leetcode/test/test_solution_823.py::test_solution_823_deep PASSED                 [100%]
 
-================================================= 12 passed in 0.12s =================================================
+================================================= 12 passed in 0.12s ============================
 ```
 
 ## One-time Setup
@@ -66,16 +66,16 @@ Finally, install this project's code (in packages described in pyproject.toml) i
 To execute tests for only a specific puzzle site, for example `leetcode` provide pytest with the project directory in which to search for tests:
 
     pytest ./src/mdye_leetcode
-    ==================================================== test session starts ====================================================
+    ================================================ test session starts ============================
     platform linux -- Python 3.9.13, pytest-7.1.3, pluggy-1.0.0
     rootdir: /home/mdye/projects/mdye-python-samples, configfile: pyproject.toml
-    collected 8 items                                                                                                           
+    collected 8 items                                                                                
     
-    src/mdye_leetcode/test/test_solution_1060.py::test_solution_5_basic PASSED                                            [ 12%]
-    src/mdye_leetcode/test/test_solution_1491.py::test_solution_1491_basic PASSED                                         [ 25%]
+    src/mdye_leetcode/test/test_solution_1060.py::test_solution_5_basic PASSED                 [ 12%]
+    src/mdye_leetcode/test/test_solution_1491.py::test_solution_1491_basic PASSED              [ 25%]
 
     ...
-    ===================================================== 8 passed in 0.04s =====================================================
+    ===================================================== 8 passed in 0.04s =========================
     
 To execute miscellaneous code samples (those in `mdye_misc`), execute modules directly with the necessary cli args. For example:
 
