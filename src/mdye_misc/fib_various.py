@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
-from typing import List, Callable, Any, Mapping
+from typing import List, Optional
 
 from common.timing import TimingRecord, timed
 
@@ -53,7 +53,7 @@ def calc_fib_naive(n: int) -> int:
     return calc_fib_naive(n - 1) + calc_fib_naive(n - 2)
 
 
-def main(n: int) -> int:
+def main(n: int) -> None:
 
     if n < 0:
         raise ValueError("Given n must be >= 0")
