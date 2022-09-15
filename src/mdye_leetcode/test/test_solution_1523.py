@@ -1,6 +1,4 @@
-#!/usr/bin/env python3
-# -*- coding: latin-1 -*-
-""" """
+# -*- coding: utf-8 -*-
 
 import pytest
 from mdye_leetcode.solution_1523 import Solution
@@ -15,5 +13,6 @@ def sol():
 def test_solution_1491_basic(sol: Solution):
     assert 3 == sol.countOdds(3, 7)
     assert 1 == sol.countOdds(8, 10)
+
 
 # vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4

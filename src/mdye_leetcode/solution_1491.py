@@ -1,10 +1,9 @@
-# -*- coding: latin-1 -*-
-""" """
+# -*- coding: utf-8 -*-
+
 from typing import Optional, List
 
 
 class Solution:
-
     def find_lims(self, salary: List[int]) -> (int, int):
         low: Optional[int] = None
         high: Optional[int] = None
@@ -29,10 +28,11 @@ class Solution:
         total = 0
         count = 0
         for sval in salary:
-            if sval != low and sval != high:
+            if sval not in (low, high):
                 count += 1
                 total += sval
 
         return total / count
+
 
 # vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4

@@ -1,4 +1,4 @@
-# -*- coding: latin-1 -*-
+# -*- coding: utf-8 -*-
 
 # need a structure that allows low cost prepending; deque is good, so is linked list
 from collections import deque
@@ -28,5 +28,6 @@ class Solution:
                 piles.append(deque([n]))
 
         return piles
+
 
 # vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4

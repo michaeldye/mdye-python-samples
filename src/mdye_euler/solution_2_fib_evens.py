@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+
+
 def solve(limit: int) -> int:
     prevprev = prev = ix = total = 0
 
@@ -12,7 +15,8 @@ def solve(limit: int) -> int:
 
         if curr > limit:
             return total
-        elif curr % 2 == 0:
+
+        if curr % 2 == 0:
             total += curr
 
         ix += 1

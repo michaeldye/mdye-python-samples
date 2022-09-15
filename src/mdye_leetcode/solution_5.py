@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+
+
 class Solution:
     def fromMiddles(self, mid_f: int, mid_s: int, s: str) -> (int, int):
         dis = start = end = 0

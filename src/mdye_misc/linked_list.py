@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
-## linked list
+# linked list
 #
 # append: O(N) , appending 1 item requires we traverse whole list to get to end
 # prepend: O(1) , prepending just needs a few values set (references rearranged)
@@ -13,12 +14,11 @@ import sys
 from typing import Any, Optional
 
 
-class Node(object):
+class Node:
     _next = None
     _value = None
 
     def __init__(self, vv: int, nn: "Node" = None):
-
         self._next = nn
         self._value = vv
 
@@ -38,7 +38,7 @@ class Node(object):
         return f"value: {self.val}"
 
 
-class LinkedList(object):
+class LinkedList:
     root = None
 
     def __init__(self):
@@ -84,7 +84,8 @@ class LinkedList(object):
         while True:
             if nn is None:
                 break
-            elif nn != self.root:
+
+            if nn != self.root:
                 out_str += ", "
 
             out_str += f"{nn}"
@@ -115,7 +116,6 @@ def gen(ct: int) -> Node:
     # will return the root node (with value 0); this was the last node to get created
 
     def gen0(n: int) -> Node:
-
         if n == ct:
             return None
         return Node(n, gen0(n + 1))

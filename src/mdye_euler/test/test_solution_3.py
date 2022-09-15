@@ -1,4 +1,4 @@
-import pytest
+# -*- coding: utf-8 -*-
 
 from mdye_euler.solution_3_largest_prime_factor import lpf
 

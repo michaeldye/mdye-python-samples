@@ -1,11 +1,12 @@
-#!/bin/env python3
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 import sys
 import string
 import random
 
 from typing import Optional, List, Callable
-from linked_list import Node, LinkedList
+from mdye_misc.linked_list import Node, LinkedList
 
 
 class HashTable:

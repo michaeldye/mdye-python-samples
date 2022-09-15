@@ -1,6 +1,9 @@
+# -*- coding: utf-8 -*-
+
 import pytest
 
 from mdye_leetcode.solution_1060 import Solution
+
 
 # makes a Solution object b/c that's how leetcode rolls
 @pytest.fixture(scope="module")

@@ -1,5 +1,4 @@
-# -*- coding: latin-1 -*-
-""" """
+# -*- coding: utf-8 -*-
 
 
 class Solution:
@@ -13,5 +12,6 @@ class Solution:
             range_qty += 1
 
         return range_qty
+
 
 # vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4
