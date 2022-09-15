@@ -4,7 +4,6 @@ from typing import Optional, List
 
 
 class Solution:
-
     def find_lims(self, salary: List[int]) -> (int, int):
         low: Optional[int] = None
         high: Optional[int] = None
@@ -34,5 +33,6 @@ class Solution:
                 total += sval
 
         return total / count
+
 
 # vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4

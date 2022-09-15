@@ -14,4 +14,5 @@ def test_solution_1491_basic(sol: Solution):
     assert 3 == sol.countOdds(3, 7)
     assert 1 == sol.countOdds(8, 10)
 
+
 # vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4

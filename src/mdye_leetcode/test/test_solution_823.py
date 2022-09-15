@@ -21,4 +21,5 @@ def test_solution_823_deep(sol: Solution):
     # these are bigger trees than the minis and the solution needs to count all of the subtrees, including mirrors
     assert 12 == sol.numFactoredBinaryTrees([18, 3, 6, 2])
 
+
 # vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4

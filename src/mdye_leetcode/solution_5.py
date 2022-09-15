@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+
 class Solution:
     def fromMiddles(self, mid_f: int, mid_s: int, s: str) -> (int, int):
         dis = start = end = 0
@@ -38,7 +39,7 @@ class Solution:
                     en = den
 
             if en - st + 1 > len(longest):
-                longest = s[st: en + 1]
+                longest = s[st : en + 1]
 
         return longest
 

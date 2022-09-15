@@ -58,4 +58,5 @@ def prime_finder(primes: List[int]) -> Callable[[int], int]:
 
     return prime_fn
 
+
 # vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4

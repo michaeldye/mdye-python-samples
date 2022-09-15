@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+
 def solve(limit: int) -> int:
     prevprev = prev = ix = total = 0
 

@@ -24,4 +24,5 @@ def test_solution_5_odds(sol: Solution):
     assert "zpzzpz" == sol.longestPalindrome("babazpzzpz")
     assert "aca" == sol.longestPalindrome("aacabdkacaa")
 
+
 # vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4
