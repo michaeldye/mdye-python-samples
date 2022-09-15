@@ -5,17 +5,20 @@
 A repo of small Python code samples. Some are related to programming puzzle /
 practice sites.
 
-* [LeetCode](https://leetcode.com) solutions can be found in [src/mdye_leetcode](src/mdye_leetcode)
-* [Project Euler](https://projecteuler.net) solutions can be found in [src/mdye_euler](src/mdye_euler)
+* [LeetCode](https://leetcode.com) solutions can be found in [src/mdye_leetcode](src/mdye_leetcode); unit tests are in [src/mdye_leetcode/test](src/mdye_leetcode/test)
+* [Project Euler](https://projecteuler.net) solutions can be found in [src/mdye_euler](src/mdye_euler); unit tests are in [src/mdye_euler/test](src/mdye_euler/test)
 
-All code assumes a recent version of Python, like 3.9.0 or newer. (See `pyproject.toml` for precise dependency declaration).
+Given appropriate setup, you can execute tests for all puzzles and code samples by invoking:
 
+```
+pytest
+```
 
 ## One-time Setup
 
 ### Step 1: Set up a Python interpreter and virtual environment
 
-If you don't already have a suitable Python interpreter and virtual environment, consult [doc/environment_setup.md](doc/environment_setup.md)
+All code assumes a recent version of Python, like 3.9.0 or newer. (See `pyproject.toml` for precise dependency declaration). If you don't already have a suitable Python interpreter and virtual environment, consult [doc/environment_setup.md](doc/environment_setup.md).
 
 ### Step 2: Install Poetry
 
@@ -45,26 +48,7 @@ Finally, install this project's code (in packages described in pyproject.toml) i
     Installing the current project: mdye-python-samples (0.1.0)
 
 
-## Project Use
-
-### Execute solutions
-
-All mature code puzzle solutions are tested by pytest. To execute tests in this project, execute:
-
-    pytest
-
-    ==================================================== test session starts ====================================================
-    platform linux -- Python 3.9.13, pytest-7.1.3, pluggy-1.0.0
-    rootdir: /home/mdye/projects/mdye-python-samples, configfile: pyproject.toml
-    collected 12 items                                                                                                          
-    
-    src/mdye_euler/test/test_solution_1.py::test_solution PASSED                                                          [  8%]
-    src/mdye_euler/test/test_solution_2.py::test_solution PASSED                                                          [ 16%]
-    src/mdye_euler/test/test_solution_3.py::test_lpf_small PASSED                                                         [ 25%]
-    
-    ...
-    ==================================================== 12 passed in 0.14s =====================================================
-
+## Execution options
 
 To execute tests for only a specific puzzle site, for example `leetcode` provide pytest with the project directory in which to search for tests:
 
@@ -80,9 +64,7 @@ To execute tests for only a specific puzzle site, for example `leetcode` provide
     ...
     ===================================================== 8 passed in 0.04s =====================================================
     
-### Execute miscellaneous code samples
-
-For content in `mdye_misc`, execute modules directly with the necessary cli args. For example:
+To execute miscellaneous code samples (those in `mdye_misc`), execute modules directly with the necessary cli args. For example:
 
     ./src/mdye_misc/fib_various.py 20
 
@@ -94,7 +76,7 @@ For content in `mdye_misc`, execute modules directly with the necessary cli args
 
 .. or:
 
-    ./src/mdye_misc/heaps.py 
+    ./src/mdye_misc/heaps.py
 
     priority order after popping top of heap each time:
     [65, 42, 32, 22, 19, 19, 12, 7, 7, 6, 6, 5, 2, 1, 1]
