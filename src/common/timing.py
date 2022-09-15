@@ -1,7 +1,6 @@
-from typing import List, Callable, Any, Mapping
-
-from time import time
 from functools import wraps
+from time import time
+from typing import Callable, Any, Mapping, Optional
 
 
 class TimingRecord:
@@ -17,11 +16,15 @@ class TimingRecord:
 
         self.start_time = time()
 
+        return self
+
     def finish(self) -> "TimingRecord":
         self.bail_if_finished()
 
         self.end_time = time()
         self.elapsed_time = self.end_time - self.start_time
+
+        return self
 
     def report(self) -> Mapping[str, str]:
         return {"fn_name": self.fn_name, "time_s": "{:2.6}".format(self.elapsed_time)}
