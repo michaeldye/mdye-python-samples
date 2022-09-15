@@ -1,6 +1,6 @@
 # `mdye-python-samples`
 
-![Check Action Status](https://github.com/michaeldye/mdye-python-samples/actions/workflows/python-app.yaml/badge.svg)
+[![Unit Test Status](https://github.com/michaeldye/mdye-python-samples/actions/workflows/python-app.yaml/badge.svg)](https://github.com/michaeldye/mdye-python-samples/actions)
 
 A repo of small Python code samples. Some are related to programming puzzle /
 practice sites like [LeetCode](https://leetcode.com) or [Project
