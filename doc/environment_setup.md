@@ -22,7 +22,12 @@ Now activate the virtualenv and note that your `PYTHON_PATH` has been modified a
 ```
 source ./venv/bin/activate
 
-(venv) mdye-python-samples[1]# echo $VIRTUAL_ENV
+(venv) mdye-python-samples[1]# 
+```
+
+```
+echo $VIRTUAL_ENV
+
 /home/mdye/projects/mdye-python-samples/venv
 ```
 

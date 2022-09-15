@@ -1,6 +1,6 @@
 # `mdye-python-samples`
 
-[![Unit Test Status](https://github.com/michaeldye/mdye-python-samples/actions/workflows/python-app.yaml/badge.svg)](https://github.com/michaeldye/mdye-python-samples/actions)
+[![Status](https://github.com/michaeldye/mdye-python-samples/actions/workflows/python-app.yaml/badge.svg)](https://github.com/michaeldye/mdye-python-samples/actions)
 
 A repo of small Python code samples. Some are related to programming puzzle /
 practice sites.
@@ -12,6 +12,19 @@ Given appropriate setup, you can execute tests for all puzzles and code samples 
 
 ```
 pytest
+
+================================================ test session starts =================================================
+platform linux -- Python 3.9.13, pytest-7.1.3, pluggy-1.0.0
+rootdir: /home/mdye/projects/mdye-python-samples, configfile: pyproject.toml
+collected 12 items                                                                                                   
+
+src/mdye_euler/test/test_solution_1.py::test_solution PASSED                                                   [  8%]
+...
+src/mdye_leetcode/test/test_solution_1060.py::test_solution_5_basic PASSED                                     [ 41%]
+...
+src/mdye_leetcode/test/test_solution_823.py::test_solution_823_deep PASSED                                     [100%]
+
+================================================= 12 passed in 0.12s =================================================
 ```
 
 ## One-time Setup
