@@ -3,7 +3,7 @@ name="mdye-python-samples"
 version="0.1.0"
 description="Varying modern Python code samples, packaged."
 authors=[ "michael dye <m-github@divisive.info>"]
-packages=[ 
+packages=[
     { include="common", from="src" },
     { include="mdye_misc", from="src" },
     { include="mdye_leetcode", from="src" },
@@ -31,7 +31,6 @@ log_cli = true
 log_cli_level = "DEBUG"
 
 [tool.pylint."MESSAGES CONTROL"]
-
 # Only show warnings with the listed confidence levels. Leave empty to show
 # all. Valid levels: HIGH, INFERENCE, INFERENCE_FAILURE, UNDEFINED.
 confidence = ''
