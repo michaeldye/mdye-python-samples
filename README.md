@@ -1,8 +1,8 @@
 # `mdye-python-samples`
 
-## Introduction 
-
 [![Status](https://github.com/michaeldye/mdye-python-samples/actions/workflows/python-app.yaml/badge.svg)](https://github.com/michaeldye/mdye-python-samples/actions)
+
+## Introduction 
 
 A repo of small Python code samples. Some are related to programming puzzle /
 practice sites.
