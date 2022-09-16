@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 # linked list
@@ -10,7 +9,6 @@
 # good for: cases when you can use prepend for adding, you get guaranteed constant
 # time without any pauses for arraylist expansion, say
 
-import sys
 from typing import Any, Optional
 
 
@@ -67,13 +65,13 @@ class LinkedList:
 
         return self
 
-    def search(self, val: Any) -> Optional[Any]:
+    def search(self, val: Any) -> Optional[Node]:
         n = self.root
 
         while n is not None:
             if n.val == val:
-                return val
-            n = n._next
+                return n
+            n = n.next_node
 
         return None
 
@@ -115,40 +113,11 @@ def gen_in_loop(ct: int) -> Node:
 def gen(ct: int) -> Node:
     # will return the root node (with value 0); this was the last node to get created
 
-    def gen0(n: int) -> Node:
+    def gen0(n: int) -> Optional[Node]:
         if n == ct:
             return None
         return Node(n, gen0(n + 1))
 
     return gen0(0)
 
-
-if __name__ == "__main__":
-    print("List of Nodes generated in loop")
-    print_nodes(gen_in_loop(24))
-
-    print("List of Nodes generated recursively")
-    print_nodes(gen(24))
-
-    print("List generated with LinkedList append: * really slow!! *")
-    la = LinkedList()
-    for i in range(24):
-        la.append(Node(i))
-
-    print("LinkedList filled using append")
-    print(la)
-
-    lp = LinkedList()
-    ct = 24
-    for i in range(ct):
-        lp.prepend(Node(ct - 1 - i))
-
-    print("LinkedList filled using prepend: plenty fast")
-    print(lp)
-
-    # search for a given node
-    assert lp.search(22)
-    assert not lp.search(2000)
-
-    print("done")
-    sys.exit(0)
+# vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4
