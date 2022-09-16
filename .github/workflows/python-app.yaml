@@ -1,4 +1,4 @@
-name: mdye-python-samples tests
+name: Tests
 
 on: push
 
