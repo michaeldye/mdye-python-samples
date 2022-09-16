@@ -1,5 +1,7 @@
 # `mdye-python-samples`
 
+## Introduction 
+
 [![Status](https://github.com/michaeldye/mdye-python-samples/actions/workflows/python-app.yaml/badge.svg)](https://github.com/michaeldye/mdye-python-samples/actions)
 
 A repo of small Python code samples. Some are related to programming puzzle /
@@ -27,7 +29,7 @@ src/mdye_leetcode/test/test_solution_823.py::test_solution_823_deep PASSED      
 ================================================= 12 passed in 0.12s ============================
 ```
 
-## One-time Setup
+## Project Setup
 
 ### Step 1: Set up a Python interpreter and virtual environment
 
