@@ -8,7 +8,7 @@ def avg_of_subarray_naive(size: int, arr: List[int]) -> float:
     for ix in range(len(arr) - size + 1):
         # ix will be every start
 
-        avg = sum([it for it in arr[ix: ix + size]])
+        avg = sum( arr[ix: ix + size] )
         windows.append(avg / size)
 
     return windows
