@@ -10,10 +10,10 @@ practice sites.
 * [LeetCode](https://leetcode.com) solutions can be found in [src/mdye_leetcode](src/mdye_leetcode); unit tests are in [src/mdye_leetcode/test](src/mdye_leetcode/test)
 * [Project Euler](https://projecteuler.net) solutions can be found in [src/mdye_euler](src/mdye_euler); unit tests are in [src/mdye_euler/test](src/mdye_euler/test)
 
-Given appropriate setup, you can execute tests for all puzzles and code samples by invoking:
+Given appropriate setup, you can execute tests for all puzzles and code samples (followed by code linting) by invoking:
 
 ```shell
-$ pytest
+$ make
 
 ================================================ test session starts ============================
 platform linux -- Python 3.9.13, pytest-7.1.3, pluggy-1.0.0
@@ -47,27 +47,16 @@ $ echo $VIRTUAL_ENV && which python && which pip
 ~/projects/mdye-python-samples/.direnv/python-3.9.14/bin/pip
 ```
 
-Now install [poetry](https://pypi.org/project/poetry/):
+Now install project dependencies (like [poetry](https://pypi.org/project/poetry/)) and project's code:
 
 ```shell
-$ pip install poetry
+$ make install-deps
 
 ...
 Successfully installed ... poetry-1.2.0 poetry-core-1.1.0 ... 
 ...
-```
-
-### Step 3: Install this project's code in your virtual environment
-
-Finally, install this project's code (in packages described in pyproject.toml) in your virtual env:
-
-```shell
-$ poetry install
-
-...
 Installing the current project: mdye-python-samples (0.1.0)
 ```
-
 
 ## Execution options
 

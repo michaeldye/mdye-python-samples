@@ -5,6 +5,9 @@ on: push
 permissions:
   contents: read
 
+env:
+  SKIP_VENV_CHECK: true
+
 jobs:
   build:
 
@@ -16,14 +19,15 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: "3.9"
+    - name: Show make
+      run: |
+        make show-make
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        pip install poetry
-        poetry install
-    - name: Lint with Pylint
+        make install-deps
+    - name: Lint
       run: |
-        poetry run pylint ./src
-    - name: Test with pytest
+        make lint
+    - name: Test
       run: |
-        poetry run pytest
+        make check
