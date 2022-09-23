@@ -19,8 +19,8 @@ class Solution:
         if neg_ct % 2 == 0:
             # return 1 if positive
             return 1
-        else:
-            # return -1 if negative
-            return -1
+
+        # return -1 if negative
+        return -1
 
 # vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4
