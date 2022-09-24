@@ -71,6 +71,7 @@ Installing the current project: mdye-python-samples (0.1.0)
 
 ## Test execution options
 
+### Specific puzzles
 To execute tests for only a specific puzzle site, for example `leetcode` provide pytest with the project directory in which to search for tests:
 
 ```shell
@@ -87,6 +88,15 @@ src/mdye_leetcode/test/test_solution_1491.py::test_solution_1491_basic PASSED   
 ...
 ===================================================== 8 passed in 0.04s =========================
 ```
+
+### Pytest with stdout
+
+```shell
+$ pytest -s ./src
+...
+```
+
+### Code Samples
     
 To execute miscellaneous code samples (those in `mdye_misc`), execute modules directly with the necessary cli args. For example:
 
