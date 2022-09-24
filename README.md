@@ -37,7 +37,7 @@ Note that the following expect you've properly set up the project as described b
 * `make format`: Format all code with `black`
 * `make lint`: Lint code with `pylint` (Note that CI will reject PRs if the codebase under consideration receives a lower pylint score than the `main` branch was assigned)
 
-* `new-solution --kind=leetcode --number {solution_number}`: Create a new solution (of the appropriate type) with a templated solution implementation module and `pytest` stub.
+* `new-solution --kind=leetcode --number={solution_number}`: Create a new solution (of the appropriate type) with a templated solution implementation module and `pytest` stub.
 
 
 ## Project Setup
