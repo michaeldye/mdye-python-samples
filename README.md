@@ -36,6 +36,8 @@ Note that the following expect you've properly set up the project as described b
 * `make test`: Execute all test in the system (Note that CI will reject PRs if test fail on the codebase under consideration)
 * `make format`: Format all code with `black`
 * `make lint`: Lint code with `pylint` (Note that CI will reject PRs if the codebase under consideration receives a lower pylint score than the `main` branch was assigned)
+* `make inspect` (`all` / default): Do linting and tests
+* `make precommit`: Do inspection and reformat with black
 
 * `new-solution --kind=leetcode --number={solution_number}`: Create a new solution (of the appropriate type) with a templated solution implementation module and `pytest` stub.
 
