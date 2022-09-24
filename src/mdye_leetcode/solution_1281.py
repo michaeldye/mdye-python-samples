@@ -21,4 +21,5 @@ class Solution:
 
         return reduce(lambda acc, it: acc * it, digits) - sum(digits)
 
+
 # vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4
