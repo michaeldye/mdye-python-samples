@@ -9,6 +9,10 @@ from pathlib import Path
 
 from typing import List
 
+_indent = "    "
+_encoding_line = "# -*- coding: utf-8 -*-"
+_vim_modeline = "# vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4"
+
 
 class SolutionKind(Enum):
     EULER = "euler"
@@ -16,10 +20,6 @@ class SolutionKind(Enum):
 
 
 class SolutionContent:
-
-    _encoding_line = "# -*- coding: utf-8 -*-"
-    _vim_modeline = "# vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4"
-
     def __init__(self, mod_dir: Path, kind: SolutionKind, number: int):
         self._kind = kind
         self._number = number
@@ -52,13 +52,23 @@ class SolutionContent:
     @classmethod
     def _impl_templ(cls) -> List[str]:
 
-        return [cls._encoding_line, "", "", "class Solution:", "\tpass", "", cls._vim_modeline]
+        return [
+            _encoding_line,
+            "",
+            "",
+            "class Solution:",
+            f"{_indent}pass",
+            "",
+            "",
+            _vim_modeline,
+            "",
+        ]
 
     @classmethod
     def _test_templ(cls, kind: SolutionKind, solnum: int) -> List[str]:
         lines = []
 
-        lines += [cls._encoding_line, "", "import pytest", ""]
+        lines += [_encoding_line, "", "import pytest", ""]
 
         if kind == SolutionKind.LEETCODE:
             lines += [
@@ -67,11 +77,11 @@ class SolutionContent:
                 "# makes a Solution object b/c that's how leetcode rolls",
                 """@pytest.fixture(scope="module")""",
                 "def sol():",
-                "\tyield Solution()",
+                f"{_indent}yield Solution()",
+                "",
                 "",
                 f"def test_solution_{solnum}_basic(sol: Solution):",
-                "\tassert False",
-                "",
+                f"{_indent}assert False",
             ]
 
         elif kind == SolutionKind.EULER:
@@ -79,10 +89,16 @@ class SolutionContent:
                 f"from mdye_{kind.value}.solution_{solnum} import solve",
                 "",
                 "def test_solution():",
-                "\tassert False",
+                f"{_indent}tassert False",
             ]
 
-        lines.append(cls._vim_modeline)
+        lines += [
+            "",
+            "",
+            _vim_modeline,
+            "",
+        ]
+
         return lines
 
     def __str__(self) -> str:
