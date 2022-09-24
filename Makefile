@@ -40,16 +40,19 @@ test: pytest
 
 pytest: | check-in-venv
 	@echo "++ $@"
-	#$(conditionally-in-poetry)
 	$(exec-prefix) $@
 
 lint: pylint
 
 pylint: $(SRC) | check-in-venv
 	@echo "++ $@"
-	#$(conditionally-in-poetry)
+	$(exec-prefix) $@ $^
+
+format: black
+
+black: $(SRC) | check-in-venv
+	@echo "++ $@"
 	$(exec-prefix) $@ $^
 
 
-
-.PHONY: all check check-in-venv lint test pylint pytest show-make
+.PHONY: all black check check-in-venv format lint test pylint pytest show-make

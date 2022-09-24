@@ -4,7 +4,6 @@ from typing import List
 
 
 class Solution:
-
     def largestPerimeter(self, nums: List[int]) -> int:
 
         # sort nums since we want to evaluate bigger lengths first b/c those will have larger perimeters
@@ -14,8 +13,8 @@ class Solution:
 
         while ax >= 0:
             z = nums[ax]
-            y = nums[ax-1]
-            x = nums[ax-2]
+            y = nums[ax - 1]
+            x = nums[ax - 2]
 
             # If x + y > z is not true, there is no value for x and y in this
             # list that is true and so we needn't search the list further. This
@@ -29,5 +28,6 @@ class Solution:
             ax -= 1
 
         return 0
+
 
 # vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4

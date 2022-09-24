@@ -2,17 +2,17 @@
 
 from typing import List
 
+
 def avg_of_subarray_naive(size: int, arr: List[int]) -> float:
     windows = []
 
     for ix in range(len(arr) - size + 1):
         # ix will be every start
 
-        avg = sum( arr[ix: ix + size] )
+        avg = sum(arr[ix : ix + size])
         windows.append(avg / size)
 
     return windows
-
 
 
 def avg_of_subarray_reuse_sum(size: int, arr: List[int]) -> float:

@@ -4,7 +4,6 @@ from typing import List
 
 
 class Solution:
-
     def arraySign(self, nums: List[int]) -> int:
 
         neg_ct = 0
@@ -22,5 +21,6 @@ class Solution:
 
         # return -1 if negative
         return -1
+
 
 # vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4

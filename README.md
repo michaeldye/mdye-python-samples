@@ -29,6 +29,17 @@ src/mdye_leetcode/test/test_solution_823.py::test_solution_823_deep PASSED      
 ================================================= 12 passed in 0.12s ============================
 ```
 
+## Useful project management invocations
+
+Note that the following expect you've properly set up the project as described below.
+
+* `make test`: Execute all test in the system (Note that CI will reject PRs if test fail on the codebase under consideration)
+* `make format`: Format all code with `black`
+* `make lint`: Lint code with `pylint` (Note that CI will reject PRs if the codebase under consideration receives a lower pylint score than the `main` branch was assigned)
+
+* `new-solution --kind=leetcode --number {solution_number}`: Create a new solution (of the appropriate type) with a templated solution implementation module and `pytest` stub.
+
+
 ## Project Setup
 
 ### Step 1: Set up a Python interpreter and virtual environment
@@ -58,7 +69,7 @@ Successfully installed ... poetry-1.2.0 poetry-core-1.1.0 ...
 Installing the current project: mdye-python-samples (0.1.0)
 ```
 
-## Execution options
+## Test execution options
 
 To execute tests for only a specific puzzle site, for example `leetcode` provide pytest with the project directory in which to search for tests:
 
