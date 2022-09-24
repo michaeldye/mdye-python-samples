@@ -2,7 +2,7 @@
 
 
 class Solution:
-     def areAlmostEqual(self, s1: str, s2: str) -> bool:
+    def areAlmostEqual(self, s1: str, s2: str) -> bool:
         s1_mismatch_ixes = []
 
         for ix, c in enumerate(s1):
@@ -15,7 +15,8 @@ class Solution:
         size = len(s1_mismatch_ixes)
         if size == 0:
             return True
-        elif size == 2:
+
+        if size == 2:
             sx = s1_mismatch_ixes[0]
             fx = s1_mismatch_ixes[1]
 
