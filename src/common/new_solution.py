@@ -52,7 +52,7 @@ class SolutionContent:
     @classmethod
     def _impl_templ(cls) -> List[str]:
 
-        return [cls._encoding_line, "", "", cls._vim_modeline]
+        return [cls._encoding_line, "", "", "class Solution:", "\tpass", "", cls._vim_modeline]
 
     @classmethod
     def _test_templ(cls, kind: SolutionKind, solnum: int) -> List[str]:
@@ -62,14 +62,14 @@ class SolutionContent:
 
         if kind == SolutionKind.LEETCODE:
             lines += [
-                f"from mdye_{kind.value}.solution_{solnum}",
+                f"from mdye_{kind.value}.solution_{solnum} import Solution",
                 "",
                 "# makes a Solution object b/c that's how leetcode rolls",
                 """@pytest.fixture(scope="module")""",
                 "def sol():",
                 "\tyield Solution()",
                 "",
-                f"def test_solution_{solnum}_basic(sol: Solution)",
+                f"def test_solution_{solnum}_basic(sol: Solution):",
                 "\tassert False",
                 "",
             ]
@@ -88,7 +88,7 @@ class SolutionContent:
     def __str__(self) -> str:
         def _content_with_seps(name: str, content: str) -> str:
             return str(
-                f"\n*********** {name} ************\n{str(content)}\n****************************************************"
+                f"\n----------- {name} ----------------\n{str(content)}\n-----------------------------------------------"
             )
 
         return str(
@@ -109,18 +109,16 @@ def main():
         required=True,
     )
     parser.add_argument("-n", "--number", action="store", type=int, required=True)
-    #    parser.add_argument('-t', '--code-template', action="store", choices=SolutionKind, type=SolutionKind, required=False, default=Template.DEFAULT)
 
     args = parser.parse_args()
 
     mod_dir = Path(Path(__file__).parent, "..", f"mdye_{args.kind.value}").resolve()
 
-    print(f"Using {args.kind=}, {args.number=}, {mod_dir=}")
-
     content = SolutionContent(mod_dir, args.kind, args.number)
     content.write()
-    print(f"Wrote {content}")
+    print(content)
 
+    print(str("\n\nWrote content successfully, exiting."))
     sys.exit(0)
 
 
