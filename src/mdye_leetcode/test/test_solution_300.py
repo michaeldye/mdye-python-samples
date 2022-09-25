@@ -2,7 +2,7 @@
 
 import pytest
 
-from mdye_leetcode.solution_300_longest_increasing_subsequence import Solution
+from mdye_leetcode.solution_300 import Solution
 
 
 # makes a Solution object b/c that's how leetcode rolls
