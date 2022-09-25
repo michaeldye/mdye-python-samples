@@ -1,11 +1,17 @@
 # -*- coding: utf-8 -*-
 
-from typing import List
+from typing import List, Optional
 
 
 class Solution:
-    def cslope(self, p1: List[int], p2: List[int]) -> float:
-        return p2[1] - p1[1] / p2[0] - p1[0]
+    def cslope(self, p1: List[int], p2: List[int]) -> Optional[float]:
+        denom = p2[0] - p1[0]
+        if denom == 0:
+            return (
+                None  # this means undefined for us; a vertical line has undefined slope
+            )
+
+        return (p2[1] - p1[1]) / denom
 
     def checkStraightLine(self, coordinates: List[List[int]]) -> bool:
         last = coordinates[1]
