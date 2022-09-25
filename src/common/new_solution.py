@@ -120,7 +120,7 @@ def main():
         "-k",
         "--kind",
         action="store",
-        choices=SolutionKind,
+        choices=[k.value for k in SolutionKind],
         type=SolutionKind,
         required=True,
     )
