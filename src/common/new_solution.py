@@ -116,21 +116,23 @@ class SolutionContent:
 
 def main():
     parser = argparse.ArgumentParser()
+
     parser.add_argument(
         "-k",
         "--kind",
         action="store",
         choices=[k.value for k in SolutionKind],
-        type=SolutionKind,
+        type=str,
         required=True,
     )
     parser.add_argument("-n", "--number", action="store", type=int, required=True)
 
     args = parser.parse_args()
+    kind = SolutionKind(args.kind)
 
-    mod_dir = Path(Path(__file__).parent, "..", f"mdye_{args.kind.value}").resolve()
+    mod_dir = Path(Path(__file__).parent, "..", f"mdye_{kind.value}").resolve()
 
-    content = SolutionContent(mod_dir, args.kind, args.number)
+    content = SolutionContent(mod_dir, kind, args.number)
     content.write()
     print(content)
 
