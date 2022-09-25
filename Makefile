@@ -15,7 +15,7 @@ ifndef verbose
 .SILENT:
 endif
 
-all: check lint
+all: inspect
 
 show-make:
 	which make
@@ -36,6 +36,10 @@ install-deps: | check-in-venv
 
 check: test
 
+inspect: check lint
+
+precommit: format inspect
+
 test: pytest
 
 pytest: | check-in-venv
@@ -55,4 +59,4 @@ black: $(SRC) | check-in-venv
 	$(exec-prefix) $@ $^
 
 
-.PHONY: all black check check-in-venv format lint test pylint pytest show-make
+.PHONY: all black check check-in-venv format inspect lint test precommit pylint pytest show-make
