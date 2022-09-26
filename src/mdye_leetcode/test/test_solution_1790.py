@@ -4,6 +4,7 @@ import pytest
 
 from mdye_leetcode.solution_1790 import Solution
 
+
 # makes a Solution object b/c that's how leetcode rolls
 @pytest.fixture(scope="module")
 def sol():

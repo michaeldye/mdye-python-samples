@@ -1,12 +1,10 @@
 # -*- coding: utf-8 -*-
 
+import argparse
 import os
 import sys
-import argparse
-import pprint
 from enum import Enum
 from pathlib import Path
-
 from typing import List
 
 _indent = "    "
@@ -73,6 +71,7 @@ class SolutionContent:
         if kind == SolutionKind.LEETCODE:
             lines += [
                 f"from mdye_{kind.value}.solution_{solnum} import Solution",
+                "",
                 "",
                 "# makes a Solution object b/c that's how leetcode rolls",
                 """@pytest.fixture(scope="module")""",
