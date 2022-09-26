@@ -22,7 +22,7 @@ collected 12 items
 
 src/mdye_euler/test/test_solution_1.py::test_solution PASSED                               [  8%]
 ...
-src/mdye_leetcode/test/test_solution_1060.py::test_solution_5_basic PASSED                 [ 41%]
+src/mdye_leetcode/test/test_solution_1060.py::test_solution_1060_basic PASSED              [ 41%]
 ..
 src/mdye_leetcode/test/test_solution_823.py::test_solution_823_deep PASSED                 [100%]
 
