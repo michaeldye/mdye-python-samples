@@ -2,6 +2,7 @@
 
 from typing import List
 
+
 # given definition for a Node
 class Node:
     def __init__(self, val=None, children=None):

@@ -1,15 +1,21 @@
 # -*- coding: utf-8 -*-
-
+from abc import abstractmethod
 from typing import List
 
 
-class Solution:
+class SolutionInterface:
+    @abstractmethod
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        pass
+
+
+class Solution(SolutionInterface):
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
         nums2_stack = []
         nums2_lookup = {}
 
         for n in nums2:
-            while len(nums2_stack) > 0 and n > (j := nums2_stack[-1]):
+            while len(nums2_stack) > 0 and n > nums2_stack[-1]:
                 nums2_lookup[nums2_stack.pop()] = n
             nums2_stack.append(n)
 
@@ -18,7 +24,7 @@ class Solution:
         return [nums2_lookup.get(n, -1) for n in nums1]
 
 
-class SolutionNotAsSlow:
+class SolutionNotAsSlow(SolutionInterface):
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
 
         # make nums1 hashmap for lookup as we iterate over nums2, eliminating the
@@ -50,7 +56,7 @@ class SolutionNotAsSlow:
         return ans
 
 
-class SolutionSlow:
+class SolutionSlow(SolutionInterface):
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
         ans = []
 

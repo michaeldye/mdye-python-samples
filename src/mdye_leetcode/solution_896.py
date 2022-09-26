@@ -8,12 +8,12 @@ class Solution:
         is_dec = is_inc = False
 
         for ix in range(len(nums) - 1):
-            curr = nums[ix]
-            next = nums[ix + 1]
+            curr_e = nums[ix]
+            next_e = nums[ix + 1]
 
-            if next > curr:
+            if next_e > curr_e:
                 is_inc = True
-            elif next < curr:
+            elif next_e < curr_e:
                 is_dec = True
 
             # bail early if we see illegal condition
