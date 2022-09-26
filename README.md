@@ -33,13 +33,13 @@ src/mdye_leetcode/test/test_solution_823.py::test_solution_823_deep PASSED      
 
 Note that the following expect you've properly set up the project as described below.
 
-* `make test`: Execute all test in the system (Note that CI will reject PRs if test fail on the codebase under consideration)
+* `make test`: Execute all test in the system; note that CI will reject PRs if tests fail
 * `make format`: Format all code with `black`
-* `make lint`: Lint code with `pylint` (Note that CI will reject PRs if the codebase under consideration receives a lower pylint score than the `main` branch was assigned)
+* `make lint`: Lint code with `pylint`; note that CI will reject PRs if the codebase receives a lower pylint score than the `main` branch last had
 * `make inspect` (`all` / default): Do linting and tests
-* `make precommit`: Do inspection and reformat with black
+* `make precommit`: Format code, execute tests, and do lint inspection
 
-* `new-solution --kind=leetcode --number={solution_number}`: Create a new solution (of the appropriate type) with a templated solution implementation module and `pytest` stub.
+* `new-solution --kind {leetcode,euler} --number {solution_number}`: Create a new solution (of the appropriate type) with a templated solution implementation module and `pytest` stub.
 
 
 ## Project Setup
@@ -60,7 +60,7 @@ $ echo $VIRTUAL_ENV && which python && which pip
 ~/projects/mdye-python-samples/.direnv/python-3.9.14/bin/pip
 ```
 
-Now install project dependencies (like [poetry](https://pypi.org/project/poetry/)) and project's code:
+Install project dependencies (like [poetry](https://pypi.org/project/poetry/)) and this project's package:
 
 ```shell
 $ make install-deps
