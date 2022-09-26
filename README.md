@@ -14,7 +14,7 @@ Given appropriate setup, you can execute tests for all puzzles and code samples 
 
 ```shell
 $ make
-
+++ pytest
 ================================================ test session starts ============================
 platform linux -- Python 3.9.13, pytest-7.1.3, pluggy-1.0.0
 rootdir: /home/mdye/projects/mdye-python-samples, configfile: pyproject.toml
@@ -27,6 +27,11 @@ src/mdye_leetcode/test/test_solution_1060.py::test_solution_5_basic PASSED      
 src/mdye_leetcode/test/test_solution_823.py::test_solution_823_deep PASSED                 [100%]
 
 ================================================= 12 passed in 0.12s ============================
+++ pylint
+
+--------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
+
 ```
 
 ## Useful project management invocations
@@ -39,7 +44,7 @@ Note that the following expect you've properly set up the project as described b
 * `make inspect` (`all` / default): Do linting and tests
 * `make precommit`: Format code, execute tests, and do lint inspection
 
-* `new-solution --kind {leetcode,euler} --number {solution_number}`: Create a new solution (of the appropriate type) with a templated solution implementation module and `pytest` stub.
+* `new-solution --kind {leetcode,euler} --number {solution_number}`: Create a new solution (of the appropriate type) with a templated solution implementation module and `pytest` stub
 
 
 ## Project Setup
