@@ -73,9 +73,9 @@ option, perform the following steps:
   direnv: export +PYENV_VERSION +VIRTUAL_ENV ~PATH
   ```
 
-Every time you cd into the project directory, mdye-python-samples, direnv will automatically activate your virtual environment.
+Every time you `cd` into the project directory, mdye-python-samples, direnv will automatically activate your virtual environment.
 
 ### Troubleshooting
 
-* If the command `pyenv` isn't found, plesae ensure your shell is setup correctly
+* If the command `pyenv` isn't found, please ensure your shell is setup correctly
 * If you haven't synced the pyenv project in a while, the version you desire might not be available. If this is the case, try executing something like `(cd ~/.pyenv && git pull)` before installing a new pyenv version
