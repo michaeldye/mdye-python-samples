@@ -17,6 +17,17 @@ endif
 
 all: inspect
 
+distclean:
+	@echo "++ $@"
+	find . \( -name "__pycache__" -or -path "./build*" -or -path "./.pytest_cache*" -or -path "./dist" \) -and -not -path "./.direnv*" -exec rm -Rf {} +
+
+pristine: distclean
+	@echo "++ $@"
+	-direnv deny .envrc
+	-git checkout .
+	-git reset --hard HEAD
+	-git clean -fdx .envrc
+
 show-make:
 	which make
 	make --version
