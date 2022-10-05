@@ -59,5 +59,6 @@ disable = '''long-suffix,
         invalid-name,
         too-few-public-methods,
         consider-using-enumerate,
-        too-many-lines
+        too-many-lines,
+        duplicate-code
 '''
