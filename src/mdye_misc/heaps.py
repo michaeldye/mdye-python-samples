@@ -80,6 +80,10 @@ class MaxHeap:
     def __str__(self) -> str:
         return str(self._back)
 
+    @property
+    def size(self) -> int:
+        return len(self._back)
+
 
 if __name__ == "__main__":
     h = MaxHeap()
@@ -101,7 +105,7 @@ if __name__ == "__main__":
 
     pq = []
 
-    for _ in range(len(h._back)):
+    for _ in range(h.size):
         largest = h.extract_max()
         if len(pq) > 1:
             assert largest <= pq[-1]
