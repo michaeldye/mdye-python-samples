@@ -3,7 +3,7 @@
 from typing import List
 
 
-def avg_of_subarray_naive(size: int, arr: List[int]) -> float:
+def avg_of_subarray_naive(size: int, arr: List[int]) -> List[float]:
     windows = []
 
     for ix in range(len(arr) - size + 1):
@@ -15,8 +15,7 @@ def avg_of_subarray_naive(size: int, arr: List[int]) -> float:
     return windows
 
 
-def avg_of_subarray_reuse_sum(size: int, arr: List[int]) -> float:
-
+def avg_of_subarray_reuse_sum(size: int, arr: List[int]) -> List[float]:
     # a window-sized sum, for every number that is just added to the window we
     # subtract the outgoing value at the head of the window from the sum;
     # this strategy is from Arslan Ahmad

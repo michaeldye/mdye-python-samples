@@ -8,6 +8,7 @@
 
 # good for: cases when you can use prepend for adding, you get guaranteed constant
 # time without any pauses for arraylist expansion, say
+from __future__ import annotations
 
 from typing import Any, Optional
 
@@ -16,7 +17,7 @@ class Node:
     _next = None
     _value = None
 
-    def __init__(self, vv: int, nn: "Node" = None):
+    def __init__(self, vv: int | str, nn: "Node" = None):
         self._next = nn
         self._value = vv
 

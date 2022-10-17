@@ -37,25 +37,49 @@ class HashTable:
     def insert(self, val: str) -> None:
         h = self._hash(val)
 
-        if not self.get(val, h):
+        node = self._get(val, h)
+        if not node:
+            # prepend b/c that's O(1) in a linkedlist
             self._table[h].prepend(Node(val))
 
-    def get(self, val: str, h: int = None) -> Optional[str]:
+    def _get(self, val: str, h: int = None) -> Optional[Node]:
         if not h:
             h = self._hash(val)
 
-        return self._table[h].search(val)
+        if (n := self._table[h].search(val)) is not None:
+            return n
+
+        return None
+
+    def get(self, val: str) -> Optional[str]:
+        n = self._get(val)
+        if n is not None:
+            return n.val
+
+        return None
 
     def _hash_knuth_variant(self, item: str) -> int:
         # using h(k) = k(k + 3) mod m, where k is the key (int value if item)
         # and m is the size of the hash table
 
-        k = hash(item)  # use python's built-in hash to get an int value from our item
+        k = self._str_to_int(
+            item
+        )  # use python's built-in hash to get an int value from our item
         return (k * (k + 3)) % self._size
 
     def _hash_division(self, item: str) -> int:
-        k = hash(item)
+        k = self._str_to_int(item)
         return k % self._size
+
+    @staticmethod
+    def _str_to_int(item: str) -> int:
+        # python's hash() function is not deterministic across runs so we made our own for simplicity
+        val = 0
+
+        for ch in item:
+            val += ord(ch)
+
+        return val
 
     def __str__(self) -> str:
         sb = ""

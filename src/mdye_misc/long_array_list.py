@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-## a demo mutable array list in python built on the ctypes.array type
+# a demo mutable array list in python built on the ctypes.array type
 #
 # append: worst case: O(N) (because we have to reallocate array and copy (extend)), but it's amortized cost so we can generalize to O(1)
 # prepend: (not implemented in this class, but making a new ds with prepended value would be O(N) b/c an extend is required
