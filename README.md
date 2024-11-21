@@ -2,7 +2,7 @@
 
 [![Status](https://github.com/michaeldye/mdye-python-samples/actions/workflows/python-app.yaml/badge.svg)](https://github.com/michaeldye/mdye-python-samples/actions)
 
-## Introduction 
+## Introduction
 
 A repo of small Python code samples. Some are related to programming puzzle /
 practice sites.
@@ -44,34 +44,22 @@ Note that the following expect you've properly set up the project as described b
 * `make inspect` (`all` / default): Do linting and tests
 * `make precommit`: Format code, execute tests, and do lint inspection
 
-* `new-solution --kind {leetcode,euler} --number {solution_number}`: Create a new solution (of the appropriate type) with a templated solution implementation module and `pytest` stub
+* `poetry run new-solution --kind {leetcode,euler} --number {solution_number}`: Create a new solution (of the appropriate type) with a templated solution implementation module and `pytest` stub
 
 
 ## Project Setup
 
-### Step 1: Set up a Python interpreter and virtual environment
+### Step 1: Set up a Python interpreter and Poetry
 
-All code assumes a recent version of Python, like 3.9.0 or newer. (See `pyproject.toml` for precise dependency declaration). If you don't already have a suitable Python interpreter and virtual environment, consult [doc/environment_setup.md](doc/environment_setup.md).
+All code assumes a recent version of Python, like 3.9.0 or newer. (See `pyproject.toml` for precise dependency declaration). It also requires the [Poetry](https://python-poetry.org/) packaging and dependency management system.
 
-### Step 2: Install Poetry
-
-Once you've set up an environment, ensure you are in an active Python virtual environment by doing something like this:
-
-```shell
-$ echo $VIRTUAL_ENV && which python && which pip
-
-/home/mdye/projects/mdye-python-samples/.direnv/python-3.9.14
-~/projects/mdye-python-samples/.direnv/python-3.9.14/bin/python
-~/projects/mdye-python-samples/.direnv/python-3.9.14/bin/pip
-```
-
-Install project dependencies (like [poetry](https://pypi.org/project/poetry/)) and this project's package:
+### Step 2: Install poetry project dependencies
 
 ```shell
 $ make install-deps
 
 ...
-Successfully installed ... poetry-1.2.0 poetry-core-1.1.0 ... 
+Successfully installed ...
 ...
 Installing the current project: mdye-python-samples (0.1.0)
 ```
@@ -82,7 +70,7 @@ Installing the current project: mdye-python-samples (0.1.0)
 To execute tests for only a specific puzzle site, for example `leetcode` provide pytest with the project directory in which to search for tests:
 
 ```shell
-$ pytest ./src/mdye_leetcode
+$ poetry run pytest ./src/mdye_leetcode
 
 ================================================ test session starts ============================
 platform linux -- Python 3.9.13, pytest-7.1.3, pluggy-1.0.0
@@ -99,30 +87,20 @@ src/mdye_leetcode/test/test_solution_1491.py::test_solution_1491_basic PASSED   
 ### Pytest with stdout
 
 ```shell
-$ pytest -s ./src
+$ poetry run pytest -s ./src
 ...
 ```
 
 ### Code Samples
-    
+
 To execute miscellaneous code samples (those in `mdye_misc`), execute modules directly with the necessary cli args. For example:
 
 ```shell
-$ ./src/mdye_misc/fib_various.py 20
+$ poetry run ./src/mdye_misc/fib_various.py 20
 
 Note: not making an effort to warm the thread so timing values may vary widely
 {'fn_name': 'calc_fib_dp', 'time_s': '1.16825e-05'}
 {'fn_name': 'calc_fib_memo', 'time_s': '6.65188e-05'}
 {'fn_name': 'calc_fib_naive', 'time_s': '0.00445795'}
 20th fib: 6765
-```
-
-... or:
-
-```shell
-$ ./src/mdye_misc/heaps.py
-
-priority order after popping top of heap each time:
-[65, 42, 32, 22, 19, 19, 12, 7, 7, 6, 6, 5, 2, 1, 1]
-done
 ```

@@ -1,10 +1,12 @@
-# -*- coding: utf-8 -*-
+"""."""
 
 from typing import List
 
 
 class Solution:
-    def missingElement(self, arr: List[int], k: int) -> int:
+    def missing_element(self, arr: List[int], k: int) -> int:
+        """."""
+
         def distance(index: int) -> int:
             # doesn't work for index > len(arr)
 

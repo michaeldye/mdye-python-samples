@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+"""."""
 
 import argparse
 import os
@@ -8,7 +8,6 @@ from pathlib import Path
 from typing import List
 
 _indent = "    "
-_encoding_line = "# -*- coding: utf-8 -*-"
 _vim_modeline = "# vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4"
 
 
@@ -19,6 +18,7 @@ class SolutionKind(Enum):
 
 class SolutionContent:
     def __init__(self, mod_dir: Path, kind: SolutionKind, number: int):
+        """."""
         self._kind = kind
         self._number = number
 
@@ -26,11 +26,10 @@ class SolutionContent:
         self._test_outp = Path(mod_dir, "test", f"test_solution_{number}.py")
 
         self._impl_content = self._render_templ(self._impl_templ())
-        self._test_content = self._render_templ(
-            self._test_templ(self._kind, self._number)
-        )
+        self._test_content = self._render_templ(self._test_templ(self._kind, self._number))
 
     def write(self) -> None:
+        """."""
         self._safe_write(self._impl_outp, self._impl_content)
         self._safe_write(self._test_outp, self._test_content)
 
@@ -49,10 +48,7 @@ class SolutionContent:
 
     @classmethod
     def _impl_templ(cls) -> List[str]:
-
         return [
-            _encoding_line,
-            "",
             "",
             "class Solution:",
             f"{_indent}pass",
@@ -66,7 +62,7 @@ class SolutionContent:
     def _test_templ(cls, kind: SolutionKind, solnum: int) -> List[str]:
         lines = []
 
-        lines += [_encoding_line, "", "import pytest", ""]
+        lines += ["", "import pytest", ""]
 
         if kind == SolutionKind.LEETCODE:
             lines += [
@@ -113,7 +109,8 @@ class SolutionContent:
         )
 
 
-def main():
+def main() -> None:
+    """."""
     parser = argparse.ArgumentParser()
 
     parser.add_argument(
@@ -133,9 +130,7 @@ def main():
 
     content = SolutionContent(mod_dir, kind, args.number)
     content.write()
-    print(content)
 
-    print(str("\n\nWrote content successfully, exiting."))
     sys.exit(0)
 
 

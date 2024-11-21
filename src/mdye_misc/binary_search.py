@@ -1,13 +1,11 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+"""."""
 
 from typing import List, Optional
-import sys
-
-data = [2, 4, 5, 6, 8, 9, 10, 11, 12, 42, 52, 99]
 
 
-def contains(n: int) -> bool:
+def contains(data: list[int], n: int) -> bool:
+    """."""
+
     def _s(arr: List[int], n: int) -> Optional[int]:
         if len(arr) == 0:
             return None
@@ -25,16 +23,7 @@ def contains(n: int) -> bool:
 
         return _s(arr[halfway:], n)
 
-    if _s(data, n) is None:
-        return False
-    return True
+    return _s(data, n) is not None
 
-
-if __name__ == "__main__":
-    assert contains(99)
-    assert not contains(15)
-    assert contains(2)
-    assert contains(8)
-    sys.exit(0)
 
 # vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4

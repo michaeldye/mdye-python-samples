@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+"""."""
 
 import sys
 from typing import Optional
@@ -23,17 +23,19 @@ from typing import Optional
 
 
 class MaxHeap:
-    _back = []
-
     def __init__(self):
+        """."""
+        self._back: list[int] = []
         pass
 
     def insert(self, value: int) -> Optional[None]:
+        """."""
         self._back.append(value)
         # always heapify after insert
         self._heapify(len(self._back) - 1)
 
     def extract_max(self) -> Optional[int]:
+        """."""
         if len(self._back) == 0:
             return None
 
@@ -63,7 +65,6 @@ class MaxHeap:
             pos = la
 
     def _heapify(self, pos: int) -> None:
-
         while (pos - 1) // 2 >= 0:
             parent = pos // 2
             # determine if the starting index (pos) and its parent need swapping
@@ -82,6 +83,7 @@ class MaxHeap:
 
     @property
     def size(self) -> int:
+        """."""
         return len(self._back)
 
 
@@ -108,11 +110,7 @@ if __name__ == "__main__":
     for _ in range(h.size):
         largest = h.extract_max()
         if len(pq) > 1:
-            assert largest <= pq[-1]
+            assert largest <= pq[-1]  # noqa: S101
         pq.append(largest)
 
-    print("priority order after popping top of heap each time:")
-    print(pq)
-
-    print("done")
     sys.exit(0)

@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
+"""linked list.
 
-# linked list
-#
-# append: O(N) , appending 1 item requires we traverse whole list to get to end
-# prepend: O(1) , prepending just needs a few values set (references rearranged)
-# search: O(N) worst case, avg. case O(N) still? best case is O(1)
+append: O(N) , appending 1 item requires we traverse whole list to get to end
+prepend: O(1) , prepending just needs a few values set (references rearranged)
+search: O(N) worst case, avg. case O(N) still? best case is O(1)
+"""
 
 # good for: cases when you can use prepend for adding, you get guaranteed constant
 # time without any pauses for arraylist expansion, say
@@ -17,20 +16,23 @@ class Node:
     _next = None
     _value = None
 
-    def __init__(self, vv: int | str, nn: "Node" = None):
+    def __init__(self, vv: int | str, nn: Optional[Node] = None):
+        """."""
         self._next = nn
         self._value = vv
 
     @property
     def val(self) -> Any:
+        """."""
         return self._value
 
     @property
-    def next_node(self) -> "Node":
+    def next_node(self) -> Optional[Node]:
+        """."""
         return self._next
 
     @next_node.setter
-    def next_node(self, node: "Node") -> None:
+    def next_node(self, node: Optional[Node]) -> None:
         self._next = node
 
     def __str__(self) -> str:
@@ -38,14 +40,13 @@ class Node:
 
 
 class LinkedList:
-    root = None
-
     def __init__(self):
+        """."""
         # can make an empty one
-        pass
+        self.root = None
 
-    def append(self, to_add: Node) -> "LinkedList":
-
+    def append(self, to_add: Node) -> LinkedList:
+        """."""
         if self.root is None:
             self.root = to_add
         else:
@@ -60,13 +61,15 @@ class LinkedList:
 
         return self
 
-    def prepend(self, to_add: Node) -> "LinkedList":
+    def prepend(self, to_add: Node) -> LinkedList:
+        """."""
         to_add.next_node = self.root
         self.root = to_add
 
         return self
 
     def search(self, val: Any) -> Optional[Node]:
+        """."""
         n = self.root
 
         while n is not None:
@@ -93,13 +96,8 @@ class LinkedList:
         return out_str
 
 
-def print_nodes(node: Node) -> None:
-    while node is not None:
-        print(node)
-        node = node.next_node
-
-
-def gen_in_loop(ct: int) -> Node:
+def gen_in_loop(ct: int) -> Optional[Node]:
+    """."""
     # will return the root node (with value 0); this was the last node to be created
 
     next_n = None
@@ -111,7 +109,8 @@ def gen_in_loop(ct: int) -> Node:
     return next_n
 
 
-def gen(ct: int) -> Node:
+def gen(ct: int) -> Optional[Node]:
+    """."""
     # will return the root node (with value 0); this was the last node to get created
 
     def gen0(n: int) -> Optional[Node]:

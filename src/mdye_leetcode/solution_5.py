@@ -1,13 +1,15 @@
-# -*- coding: utf-8 -*-
+"""."""
 
 
 class Solution:
-    def fromMiddles(self, mid_f: int, mid_s: int, s: str) -> (int, int):
+    """."""
+
+    def from_middles(self, mid_f: int, mid_s: int, s: str) -> tuple[int, int]:
+        """."""
         dis = start = end = 0
 
         # condition ensures we don't point beyond the beginning of the word
         while dis <= mid_f:
-
             pstart = mid_f - dis
             pend = mid_s + dis
 
@@ -24,16 +26,16 @@ class Solution:
 
         return start, end
 
-    def longestPalindrome(self, s: str) -> str:
-
+    def longest_palindrome(self, s: str) -> str:
+        """."""
         longest = ""
 
         for ix in range(len(s)):
-            st, en = self.fromMiddles(ix, ix, s)
+            st, en = self.from_middles(ix, ix, s)
 
             # if we're not on the last letter, consider an even palindrome
             if ix + 1 <= len(s):
-                dst, den = self.fromMiddles(ix, ix + 1, s)
+                dst, den = self.from_middles(ix, ix + 1, s)
                 if den - dst > en - st:
                     st = dst
                     en = den

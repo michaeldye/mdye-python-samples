@@ -1,10 +1,11 @@
-# -*- coding: utf-8 -*-
+"""."""
 
 from typing import List
 
 
 class Solution:
-    def isMonotonic(self, nums: List[int]) -> bool:
+    def is_monotonic(self, nums: List[int]) -> bool:
+        """."""
         is_dec = is_inc = False
 
         for ix in range(len(nums) - 1):

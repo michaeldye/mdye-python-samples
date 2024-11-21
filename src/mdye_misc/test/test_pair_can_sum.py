@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from mdye_misc import pair_can_sum
 
 

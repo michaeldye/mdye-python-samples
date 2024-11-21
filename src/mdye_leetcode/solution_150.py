@@ -1,12 +1,12 @@
-# -*- coding: utf-8 -*-
+"""."""
 
-from typing import List
 import math
+from typing import List
 
 
 class Solution:
     def do_op(self, op_s: str, a: int, b: int) -> int:
-
+        """."""
         if op_s == "+":
             ans = b + a
         elif op_s == "-":
@@ -20,11 +20,11 @@ class Solution:
 
         return ans
 
-    def evalRPN(self, tokens: List[str]) -> int:
+    def eval_rpn(self, tokens: List[str]) -> int:
+        """."""
         stack = []
 
         for t in tokens:
-
             # lame that python doesn't have a better way to test for negative
             # num than to conversion and catch exception
             try:

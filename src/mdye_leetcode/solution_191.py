@@ -1,8 +1,9 @@
-# -*- coding: utf-8 -*-
+"""."""
 
 
 class Solution:
-    def hammingWeight(self, n: int) -> int:
+    def hamming_weight(self, n: int) -> int:
+        """."""
         ct = 0
 
         while n > 0:

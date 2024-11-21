@@ -1,8 +1,9 @@
-# -*- coding: utf-8 -*-
+"""."""
 
 
 class Solution:
-    def areAlmostEqual(self, s1: str, s2: str) -> bool:
+    def are_almost_equal(self, s1: str, s2: str) -> bool:
+        """."""
         s1_mismatch_ixes = []
 
         for ix, c in enumerate(s1):

@@ -1,8 +1,9 @@
-# -*- coding: utf-8 -*-
+"""."""
 
 
 class Solution:
-    def strStr(self, haystack: str, needle: str) -> int:
+    def str_str(self, haystack: str, needle: str) -> int:
+        """."""
         # ix is the index for the letter in haystack under investigation,
         # nix is the index for the letter in needle,
         # and stix is the start index into haystack at which we started
@@ -14,7 +15,6 @@ class Solution:
         ix = nix = stix = 0
 
         while ix < len(haystack):
-
             if haystack[ix] == needle[nix]:
                 if nix == 0:
                     stix = ix

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+"""."""
 
 import sys
 from typing import List, Optional
@@ -9,6 +9,7 @@ from common.timing import TimingRecord, timed
 
 # compute to the nth fibonacci number by calculating up from first
 def calc_fib_dp(n: int) -> int:
+    """."""
     dp = [0, 1]
 
     if n >= len(dp):
@@ -23,6 +24,8 @@ _max_n_for_fib_memo = 995
 
 
 def calc_fib_memo(n: int) -> int:
+    """."""
+
     def _calc(n: int, memo: List[int]) -> int:
         if n == 0:
             return 0
@@ -46,6 +49,7 @@ _max_n_for_fib_naive = 40
 
 
 def calc_fib_naive(n: int) -> int:
+    """."""
     if n <= 0:
         return 0
     if n == 1:
@@ -55,7 +59,7 @@ def calc_fib_naive(n: int) -> int:
 
 
 def main(n: int) -> None:
-
+    """."""
     if n < 0:
         raise ValueError("Given n must be >= 0")
 
@@ -63,21 +67,9 @@ def main(n: int) -> None:
 
     if n <= _max_n_for_fib_memo:
         algs.append(calc_fib_memo)
-    else:
-        print(
-            f"Skipping evaluation of fib_memo b/c n >= {_max_n_for_fib_memo} and it'll blow the stack recurring given that input size"
-        )
 
     if n <= _max_n_for_fib_naive:
         algs.append(calc_fib_naive)
-    else:
-        print(
-            f"Skipping evaluation of fib_naive b/c n >= {_max_n_for_fib_naive} and it's too slow for that input size"
-        )
-
-    print(
-        f"Note: not making an effort to warm the thread so timing values may vary widely"
-    )
 
     last_answer: Optional[int] = None
 
@@ -91,12 +83,11 @@ def main(n: int) -> None:
         # be more careful about this, we'd store "right" answers and check
         # against those
         if last_answer:
-            assert last_answer == answer
+            assert last_answer == answer  # noqa: S101
         last_answer = answer
+        print(f"{timer.report()}")  # noqa: T201
 
-        print(timer.report())
-
-    print(f"{n}th fib: {last_answer}")
+    print(f"{last_answer}")  # noqa: T201
 
 
 if __name__ == "__main__":

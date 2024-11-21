@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import pytest
 
 from mdye_leetcode.solution_191 import Solution
@@ -10,8 +9,8 @@ def sol():
 
 
 def test_solution_191_basic(sol: Solution):
-    assert 4 == sol.hammingWeight(39)
-    assert 3 == sol.hammingWeight(11)
+    assert sol.hamming_weight(39) == 4
+    assert sol.hamming_weight(11) == 3
 
 
 # vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4

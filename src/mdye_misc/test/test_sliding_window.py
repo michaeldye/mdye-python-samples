@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from mdye_misc.sliding_window import avg_of_subarray_naive, avg_of_subarray_reuse_sum
 
 

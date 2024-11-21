@@ -1,10 +1,11 @@
-# -*- coding: utf-8 -*-
+"""."""
 
-from typing import Optional, List
+from typing import List, Optional
 
 
 class Solution:
-    def find_lims(self, salary: List[int]) -> (int, int):
+    def find_lims(self, salary: List[int]) -> tuple[Optional[int], Optional[int]]:
+        """."""
         low: Optional[int] = None
         high: Optional[int] = None
 
@@ -20,7 +21,7 @@ class Solution:
         return low, high
 
     def average(self, salary: List[int]) -> float:
-
+        """."""
         # sort is slower than iterating through the whole list to find the min and max values
         low, high = self.find_lims(salary)
 

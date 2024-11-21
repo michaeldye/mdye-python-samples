@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
-
 import pytest
+
 from mdye_leetcode.solution_1491 import Solution
 
 
@@ -11,8 +10,8 @@ def sol():
 
 
 def test_solution_1491_basic(sol: Solution):
-    assert 2500 == sol.average([4000, 3000, 1000, 2000])
-    assert 2000 == sol.average([1000, 2000, 3000])
+    assert sol.average([4000, 3000, 1000, 2000]) == 2500
+    assert sol.average([1000, 2000, 3000]) == 2000
 
 
 # vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4

@@ -1,17 +1,17 @@
-# -*- coding: utf-8 -*-
+"""."""
 
 # need a structure that allows low cost prepending; deque is good, so is linked list
 from collections import deque
-
-from typing import List, Deque
+from typing import Deque, List
 
 
 class Solution:
-    def lengthOfLIS(self, nums: List[int]) -> int:
-        return len(self.patienceSort(nums))
+    def length_of_lis(self, nums: List[int]) -> int:
+        """."""
+        return len(self.patience_sort(nums))
 
-    def patienceSort(self, nums: List[int]) -> List[Deque[int]]:
-
+    def patience_sort(self, nums: List[int]) -> List[Deque[int]]:
+        """."""
         piles: List[Deque[int]] = []
 
         for n in nums:

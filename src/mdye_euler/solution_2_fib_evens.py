@@ -1,14 +1,12 @@
-# -*- coding: utf-8 -*-
+"""."""
 
 
 def solve(limit: int) -> int:
+    """."""
     prevprev = prev = ix = total = 0
 
     while True:
-        if ix <= 2:
-            curr = ix
-        else:
-            curr = prev + prevprev
+        curr = ix if ix <= 2 else prev + prevprev
 
         prevprev = prev
         prev = curr

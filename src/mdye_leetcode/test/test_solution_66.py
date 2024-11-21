@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import pytest
 
 from mdye_leetcode.solution_66 import Solution
@@ -12,8 +10,8 @@ def sol():
 
 
 def test_solution_66_basic(sol: Solution):
-    assert sol.plusOne([1, 2, 3]) == [1, 2, 4]
-    assert sol.plusOne([9]) == [1, 0]
+    assert sol.plus_one([1, 2, 3]) == [1, 2, 4]
+    assert sol.plus_one([9]) == [1, 0]
 
 
 # vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4
