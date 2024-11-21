@@ -10,15 +10,19 @@ env:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Set up Python 3.9
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v5
       with:
         python-version: "3.9"
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      with:
+        version: 1.8.4
+        virtualenvs-create: true
+        virtualenvs-in-project: false
     - name: Show make
       run: |
         make show-make
