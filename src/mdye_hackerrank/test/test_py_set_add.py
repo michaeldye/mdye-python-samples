@@ -3,7 +3,7 @@ from textwrap import dedent
 from mdye_hackerrank.testing_support import StdinExecutor
 
 
-class TestNoIdea(StdinExecutor):
+class TestPySetAdd(StdinExecutor):
     @classmethod
     def setup_method(cls) -> None:
         cls.module = cls.from_mdye_hackerrank("py_set_add.py")
