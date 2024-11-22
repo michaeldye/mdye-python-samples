@@ -110,7 +110,7 @@ if __name__ == "__main__":
     for _ in range(h.size):
         largest = h.extract_max()
         if len(pq) > 1:
-            assert largest <= pq[-1]  # noqa: S101
+            assert largest <= pq[-1]
         pq.append(largest)
 
     sys.exit(0)

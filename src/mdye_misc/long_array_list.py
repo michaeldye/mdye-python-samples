@@ -85,22 +85,22 @@ if __name__ == "__main__":
 
     # full backing store is initialized to 0
     for ix in range(length):
-        assert a.back[ix] == 0  # noqa: S101
+        assert a.back[ix] == 0
 
     # backing store getitem is as we expect
     with contextlib.suppress(IndexError):
         a.back[length + 1]
 
     # backing storage is right size
-    assert len(a.back) == 52  # noqa: S101
+    assert len(a.back) == 52
 
     # length of arraylist is qty of used space
-    assert len(a) == 0  # noqa: S101
+    assert len(a) == 0
     a.add(2)
-    assert len(a) == 1  # noqa: S101
+    assert len(a) == 1
 
     # arraylist getitem returns value where it should
-    assert a[0] == 2  # noqa: S101
+    assert a[0] == 2
 
     # arraylist getitem throws error when there isn't a value at given index
     for k in [-1, 1]:
@@ -113,9 +113,9 @@ if __name__ == "__main__":
     for ix in range(length):  # already added stuff so going to original size will cause expansion
         a.add(ix + 77)
 
-    assert og_size + length == len(a)  # noqa: S101
+    assert og_size + length == len(a)
 
     # is will check identity
-    assert a.back is not og_back  # noqa: S101
+    assert a.back is not og_back
 
     sys.exit(0)

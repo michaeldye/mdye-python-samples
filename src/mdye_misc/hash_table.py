@@ -98,8 +98,8 @@ if __name__ == "__main__":
     table.insert("mm")
     table.insert("mm")
 
-    assert not table.get("zoo")  # noqa: S101
-    assert table.get("foo") == "foo"  # noqa: S101
+    assert not table.get("zoo")
+    assert table.get("foo") == "foo"
 
     # now fill one up with a lot of randomized string content
     table2 = HashTable(64)
