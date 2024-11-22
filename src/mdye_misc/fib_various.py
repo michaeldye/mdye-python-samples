@@ -83,11 +83,11 @@ def main(n: int) -> None:
         # be more careful about this, we'd store "right" answers and check
         # against those
         if last_answer:
-            assert last_answer == answer  # noqa: S101
+            assert last_answer == answer
         last_answer = answer
-        print(f"{timer.report()}")  # noqa: T201
+        print(f"{timer.report()}")
 
-    print(f"{last_answer}")  # noqa: T201
+    print(f"{last_answer}")
 
 
 if __name__ == "__main__":

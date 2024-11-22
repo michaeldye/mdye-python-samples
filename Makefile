@@ -2,8 +2,6 @@ SHELL := /usr/bin/env TZ=UTC bash
 
 SRC := $(CURDIR)/src
 
-
-# spooky that github actions' make needs this here (after var setup, just before targets)
 ifndef verbose
 .SILENT:
 endif
@@ -36,16 +34,20 @@ precommit: format inspect
 
 test: pytest
 
-pytest:
+pytest: | install-deps
 	@echo "++ $@"
 	poetry run pytest
 
-lint: $(SRC)
+lint: $(SRC) | install-deps
 	@echo "++ $@"
 	poetry run ruff check $^
 
-format: $(SRC)
+format: $(SRC) | install-deps
 	@echo "++ $@"
 	poetry run ruff format $^
 
-.PHONY: all check format inspect lint test precommit pytest show-make
+fix: $(SRC) | install-deps
+	@echo "++ $@"
+	poetry run ruff check --fix $^
+
+.PHONY: all check fix format inspect lint test precommit pytest show-make

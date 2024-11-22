@@ -22,7 +22,9 @@ ignore = [
   "RUF010",
   "UP006",
   "UP007",
-  "E501"
+  "E501",
+  "T201",
+  "S101"
 ]
 
 # Allow fix for all enabled rules (when `--fix`) is provided.
