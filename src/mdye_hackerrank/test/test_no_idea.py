@@ -1,29 +1,12 @@
-import subprocess
-import sys
-from pathlib import Path
 from textwrap import dedent
 
+from mdye_hackerrank.testing_support import StdinExecutor
 
-class TestNoIdea:
-    @staticmethod
-    def _from_mdye_hackerrank(fname: str) -> str:
-        p = Path(__file__).parent.parent
-        f = Path(p, fname)
-        assert f.exists()
-        return str(f)
 
-    def _exec(self, sin: str) -> str:
-        mod = self._from_mdye_hackerrank("no_idea.py")
-
-        p = subprocess.run(
-            [f"python {mod}"],
-            shell=True,
-            input=sin,
-            text=True,
-            stdout=subprocess.PIPE,
-            stderr=sys.stderr,
-        )
-        return p.stdout.strip()
+class TestNoIdea(StdinExecutor):
+    @classmethod
+    def setup_method(cls) -> None:
+        cls.module = cls.from_mdye_hackerrank("no_idea.py")
 
     def test_no_idea_stdin(self):
         sin = dedent(r"""3 2
@@ -31,5 +14,5 @@ class TestNoIdea:
                          3 1
                          5 7""")
 
-        out = self._exec(sin)
+        out = self.exec(self.module, sin)
         assert out == "1"
