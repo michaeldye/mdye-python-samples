@@ -1,11 +1,11 @@
-# -*- coding: utf-8 -*-
+"""."""
 
 from typing import List
 
 
 class Solution:
-    def largestPerimeter(self, nums: List[int]) -> int:
-
+    def largest_perimeter(self, nums: List[int]) -> int:
+        """."""
         # sort nums since we want to evaluate bigger lengths first b/c those will have larger perimeters
         nums.sort()
 

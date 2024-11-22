@@ -1,10 +1,11 @@
-# -*- coding: utf-8 -*-
+"""."""
 
 from collections import deque
 from typing import Any
 
 
 def to_digits(n: int) -> deque[Any]:
+    """."""
     digits = deque()
 
     # a deque is a data structure with O(1) prepend
@@ -18,7 +19,9 @@ def to_digits(n: int) -> deque[Any]:
 
 
 class Solution:
-    def isHappy(self, n: int) -> bool:
+    def is_happy(self, n: int) -> bool:
+        """."""
+
         def happy0(n: int, tail: set[int]) -> bool:
             if n == 1:
                 return True

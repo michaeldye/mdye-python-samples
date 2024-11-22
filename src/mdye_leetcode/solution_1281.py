@@ -1,12 +1,12 @@
-# -*- coding: utf-8 -*-
-
-from typing import List
+"""."""
 
 from functools import reduce
+from typing import List
 
 
 class Solution:
     def extract_digits(self, n: int) -> List[int]:
+        """."""
         digits = []
 
         while n > 0:
@@ -16,7 +16,8 @@ class Solution:
 
         return digits
 
-    def subtractProductAndSum(self, n: int) -> int:
+    def subtract_product_and_sum(self, n: int) -> int:
+        """."""
         digits = self.extract_digits(n)
 
         return reduce(lambda acc, it: acc * it, digits) - sum(digits)

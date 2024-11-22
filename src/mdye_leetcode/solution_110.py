@@ -1,22 +1,26 @@
-# -*- coding: utf-8 -*-
+"""."""
 
 from typing import Optional
 
 
 class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
+    def __init__(
+        self, val: int = 0, left: Optional["TreeNode"] = None, right: Optional["TreeNode"] = None
+    ):
+        """."""
         self.val = val
         self.left = left
         self.right = right
 
 
 class Solution:
-
     # O(n) time complexity b/c we visit each node only once O(n) space
     # complexity b/c we could recur such that we store n stack frames at once
     #
-    def isBalanced(self, root: Optional[TreeNode]) -> bool:
-        def bal0(node: Optional[TreeNode], depth: int, max_diff: int) -> (int, int):
+    def is_balanced(self, root: Optional[TreeNode]) -> bool:
+        """."""
+
+        def bal0(node: Optional[TreeNode], depth: int, max_diff: int) -> tuple[int, int]:
             if not node:
                 return depth, max_diff
 

@@ -1,11 +1,12 @@
-# -*- coding: utf-8 -*-
+"""."""
 
 from collections import deque
 from typing import List
 
 
 class Solution:
-    def plusOne(self, digits: List[int]) -> List[int]:
+    def plus_one(self, digits: List[int]) -> List[int]:
+        """."""
         v = 0
         for d in digits:
             v *= 10

@@ -1,11 +1,9 @@
-# -*- coding: utf-8 -*-
-
-from mdye_misc.linked_list import *
+from mdye_misc.linked_list import LinkedList, Node, gen, gen_in_loop
 
 
 def test_linked_list_node_has_next():
     root = Node(2, Node(45))
-
+    assert root.next_node is not None
     assert root.next_node.val == 45
 
 
@@ -15,7 +13,7 @@ def test_linked_list_node_has_val():
     assert root.val == 12
 
 
-def test_linked_list_LinkedList_append():
+def test_linked_list_append():
     lis = LinkedList()
 
     node22 = Node(22)
@@ -25,7 +23,7 @@ def test_linked_list_LinkedList_append():
     assert lis.root == node22
 
 
-def test_linked_list_LinkedList_prepend():
+def test_linked_list_prepend():
     lis = LinkedList()
 
     node99 = Node(99)
@@ -35,16 +33,20 @@ def test_linked_list_LinkedList_prepend():
     lis.prepend(node12)
 
     assert lis.root == node12
+    assert lis.root is not None
     assert lis.root.next_node == node99
 
 
-def test_linked_list_LinkedList_search():
+def test_linked_list_search():
     lis = LinkedList()
 
     lis.append(Node(16)).append(Node(24)).append(Node(99))
 
     assert lis.search(17) is None
-    assert lis.search(24).val == 24
+    node = lis.search(24)
+
+    assert node is not None
+    assert node.val == 24
 
 
 def test_linked_list_gen():

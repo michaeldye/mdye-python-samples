@@ -1,18 +1,23 @@
-# -*- coding: utf-8 -*-
+"""."""
+
 from typing import Optional
 
 
 class ListNode:
-    def __init__(self, val=0, next=None):
+    def __init__(self, val: int = 0, next_node: Optional["ListNode"] = None):
+        """."""
         self.val = val
-        self.next = next
+        self.next = next_node
 
     def __str__(self) -> str:
         return f"{self.val=}, {self.next=}"
 
 
 class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
+    def __init__(
+        self, val: int = 0, left: Optional["TreeNode"] = None, right: Optional["TreeNode"] = None
+    ):
+        """."""
         self.val = val
         self.left = left
         self.right = right
@@ -22,7 +27,9 @@ class TreeNode:
 
 
 class Solution:
-    def isSubPath(self, head: Optional[ListNode], root: Optional[TreeNode]) -> bool:
+    def is_sub_path(self, head: Optional[ListNode], root: Optional[TreeNode]) -> bool:
+        """."""
+
         def dfs(list_n: Optional[ListNode], n: Optional[TreeNode]) -> bool:
             if list_n is None:
                 return True
@@ -30,9 +37,7 @@ class Solution:
             if n is None:
                 return False
 
-            return list_n.val == n.val and (
-                dfs(list_n.next, n.left) or dfs(list_n.next, n.right)
-            )
+            return list_n.val == n.val and (dfs(list_n.next, n.left) or dfs(list_n.next, n.right))
 
         if head is None:
             return True
@@ -44,8 +49,8 @@ class Solution:
         # the list; if no match is found, recur down each branch of the tree
         return (
             dfs(head, root)
-            or self.isSubPath(head, root.left)
-            or self.isSubPath(head, root.right)
+            or self.is_sub_path(head, root.left)
+            or self.is_sub_path(head, root.right)
         )
 
 

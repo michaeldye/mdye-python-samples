@@ -1,8 +1,6 @@
-# -*- coding: utf-8 -*-
-
 import pytest
 
-from mdye_leetcode.solution_589 import Solution, Node
+from mdye_leetcode.solution_589 import Node, Solution
 
 
 # makes a Solution object b/c that's how leetcode rolls

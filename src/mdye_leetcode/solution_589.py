@@ -1,29 +1,34 @@
-# -*- coding: utf-8 -*-
+"""."""
 
-from typing import List
+from typing import Any, List, Optional
 
 
 # given definition for a Node
 class Node:
-    def __init__(self, val=None, children=None):
+    def __init__(self, val: Any = None, children: Optional[List["Node"]] = None):
+        """."""
         self.val = val
         self.children = children
 
 
 class Solution:
-    def preorder(self, root: "Node") -> List[int]:
+    def preorder(self, root: Optional[Node]) -> List[int]:
+        """."""
         nodes = []
 
-        def p0(node: "Node"):
+        def p0(node: Node):
             if not node:
                 return
 
             nodes.append(node.val)
 
-            # kinda lame that they don't initialize children with an empty list
-            if node.children is not None:
+            # a little lame that leetcode doesn't use an empty list for children
+            if node is not None and node.children:
                 for ch in node.children:
                     p0(ch)
+
+        if not root:
+            return []
 
         p0(root)
         return nodes

@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+from typing import Generator
 
 import pytest
 
@@ -6,18 +6,18 @@ from mdye_leetcode.solution_976 import Solution
 
 
 @pytest.fixture(scope="module")
-def sol() -> Solution:
+def sol() -> Generator[Solution, None, None]:
     yield Solution()
 
 
 def test_solution_976_basic(sol: Solution):
-    assert sol.largestPerimeter([2, 1, 2]) == 5
-    assert sol.largestPerimeter([1, 2, 1]) == 0
-    assert sol.largestPerimeter([3, 6, 2, 3]) == 8
+    assert sol.largest_perimeter([2, 1, 2]) == 5
+    assert sol.largest_perimeter([1, 2, 1]) == 0
+    assert sol.largest_perimeter([3, 6, 2, 3]) == 8
 
     # big enough that we test implementation doesn't do unnecessary, repeated calculations
     assert (
-        sol.largestPerimeter(
+        sol.largest_perimeter(
             [
                 77,
                 53,

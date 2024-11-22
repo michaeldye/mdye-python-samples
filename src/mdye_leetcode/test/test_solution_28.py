@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import pytest
 
 from mdye_leetcode.solution_28 import Solution
@@ -12,10 +10,10 @@ def sol():
 
 
 def test_solution_28_basic(sol: Solution):
-    assert sol.strStr("mississippi", "issip") == 4
-    assert sol.strStr("foogzon", "zon") == 4
-    assert sol.strStr("sadbutsad", "sad") == 0
-    assert sol.strStr("leetcode", "leeto") == -1
+    assert sol.str_str("mississippi", "issip") == 4
+    assert sol.str_str("foogzon", "zon") == 4
+    assert sol.str_str("sadbutsad", "sad") == 0
+    assert sol.str_str("leetcode", "leeto") == -1
 
 
 # vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4

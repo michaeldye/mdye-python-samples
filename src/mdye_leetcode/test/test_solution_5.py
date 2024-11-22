@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import pytest
 
 from mdye_leetcode.solution_5 import Solution
@@ -12,17 +10,17 @@ def sol():
 
 
 def test_solution_5_evens(sol: Solution):
-    assert "aa" == sol.longestPalindrome("aa")
-    assert "bbbb" == sol.longestPalindrome("bbbb")
-    assert "bb" == sol.longestPalindrome("cbbd")
+    assert sol.longest_palindrome("aa") == "aa"
+    assert sol.longest_palindrome("bbbb") == "bbbb"
+    assert sol.longest_palindrome("cbbd") == "bb"
 
 
 def test_solution_5_odds(sol: Solution):
-    assert "a" == sol.longestPalindrome("a")
-    assert "bab" == sol.longestPalindrome("babad")
-    assert "babab" == sol.longestPalindrome("bababa")
-    assert "zpzzpz" == sol.longestPalindrome("babazpzzpz")
-    assert "aca" == sol.longestPalindrome("aacabdkacaa")
+    assert sol.longest_palindrome("a") == "a"
+    assert sol.longest_palindrome("babad") == "bab"
+    assert sol.longest_palindrome("bababa") == "babab"
+    assert sol.longest_palindrome("babazpzzpz") == "zpzzpz"
+    assert sol.longest_palindrome("aacabdkacaa") == "aca"
 
 
 # vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4

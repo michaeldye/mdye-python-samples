@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import pytest
 
 from mdye_leetcode.solution_110 import Solution, TreeNode
@@ -12,14 +10,14 @@ def sol():
 
 
 def test_solution_110_basic(sol: Solution):
-    assert sol.isBalanced(
+    assert sol.is_balanced(
         TreeNode(
             3,
             left=TreeNode(9),
             right=TreeNode(20, left=TreeNode(15), right=TreeNode(7)),
         )
     )
-    assert not sol.isBalanced(
+    assert not sol.is_balanced(
         TreeNode(
             1,
             left=TreeNode(

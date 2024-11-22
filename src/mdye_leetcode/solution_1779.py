@@ -1,12 +1,12 @@
-# -*- coding: utf-8 -*-
+"""."""
 
-from typing import List
 import math
+from typing import List
 
 
 class Solution:
-    def nearestValidPoint(self, x: int, y: int, points: List[List[int]]) -> int:
-
+    def nearest_valid_point(self, x: int, y: int, points: List[List[int]]) -> int:
+        """."""
         smallest_distance = math.inf
         index = -1
 

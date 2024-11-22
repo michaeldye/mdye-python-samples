@@ -1,11 +1,13 @@
-# -*- coding: utf-8 -*-
+"""."""
 
 
 class Solution:
-    def countOdds(self, low: int, high: int) -> int:
-        return self.countOddsMathy(low, high)
+    def count_odds(self, low: int, high: int) -> int:
+        """."""
+        return self.count_odds_mathy(low, high)
 
-    def countOddsMathy(self, low: int, high: int) -> int:
+    def count_odds_mathy(self, low: int, high: int) -> int:
+        """."""
         range_qty = (high - low) // 2  # b/c high is inclusive we don't subtract 1
 
         if low % 2 == 1 or high % 2 == 1:

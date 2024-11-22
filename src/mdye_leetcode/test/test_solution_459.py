@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import pytest
 
 from mdye_leetcode.solution_459 import Solution
@@ -12,9 +10,9 @@ def sol():
 
 
 def test_solution_459_basic(sol: Solution):
-    assert sol.repeatedSubstringPattern("abab")
-    assert not sol.repeatedSubstringPattern("aba")
-    assert sol.repeatedSubstringPattern("abcabcabcabc")
+    assert sol.repeated_substring_pattern("abab")
+    assert not sol.repeated_substring_pattern("aba")
+    assert sol.repeated_substring_pattern("abcabcabcabc")
 
 
 # vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4

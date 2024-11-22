@@ -1,19 +1,27 @@
-# -*- coding: utf-8 -*-
+"""."""
 
 
 class Solution:
-    def fromBinaryStr(self, s: str) -> int:
+    # big-endian (most significant byte is at smallest memory address;
+    # this is probably the most intuitive, but most hardware is little-endian
+
+    def from_binary_str(self, s: str) -> int:
+        """."""
         # assumes big-endian
 
         v = 0
 
         for ix in range(len(s)):
-            rx = len(s) - ix - 1
+            # use ix (0...) for exponentiation, 2^0, 2^1, 2^2...
+            # use rx (the reverse index) to iterate from least significant digit to most
+
+            rx = len(s) - 1 - ix
             v += int(s[rx]) * 2**ix
 
         return v
 
-    def toBinaryStr(self, v: int) -> str:
+    def to_binary_str(self, v: int) -> str:
+        """."""
         # will only work for v >= 0; is big-endian
 
         if v == 0:
@@ -22,11 +30,7 @@ class Solution:
         s = ""
 
         while v > 0:
-            dig = ""
-            if v % 2 == 1:
-                dig = "1"
-            else:
-                dig = "0"
+            dig = "1" if v % 2 == 1 else "0"
 
             # prepend digits b/c we processed lowest bit first
             s = dig + s
@@ -35,11 +39,12 @@ class Solution:
 
         return s
 
-    def addBinary(self, a: str, b: str) -> str:
-        a_v = self.fromBinaryStr(a)
-        b_v = self.fromBinaryStr(b)
+    def add_binary(self, a: str, b: str) -> str:
+        """."""
+        a_v = self.from_binary_str(a)
+        b_v = self.from_binary_str(b)
 
-        return self.toBinaryStr(a_v + b_v)
+        return self.to_binary_str(a_v + b_v)
 
 
 # vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4

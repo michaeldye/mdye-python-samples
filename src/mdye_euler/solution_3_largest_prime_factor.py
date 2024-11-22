@@ -1,7 +1,7 @@
-# -*- coding: utf-8 -*-
+"""."""
 
 import math
-from typing import List, Callable
+from typing import Callable, List, Optional
 
 # Need to repeatedly dimish given int, n, by smallest prime found that is
 # greater than all previous until no prime factors are left. The last factor
@@ -10,6 +10,7 @@ from typing import List, Callable
 
 
 def primes_range(st: int, end: int) -> List[int]:
+    """."""
     # clipped from internet b/c I didn't want to sieve by myself
 
     sieve = [True] * end
@@ -33,22 +34,25 @@ def primes_range(st: int, end: int) -> List[int]:
 
 
 def lpf(n: int) -> int:
+    """."""
     prime_range = range(2, math.floor(math.sqrt(n)) + 1)
     pfn = prime_finder(list(prime_range))
 
     while True:
         prime = pfn(n)
+        if prime is None:
+            raise RuntimeError(f"No prime found for {n}")
 
         if prime == n:
             return n
-
         n //= prime
 
 
-def prime_finder(primes: List[int]) -> Callable[[int], int]:
+def prime_finder(primes: List[int]) -> Callable[[int], Optional[int]]:
+    """."""
     last_ix = 0
 
-    def prime_fn(n: int):
+    def prime_fn(n: int) -> Optional[int]:
         nonlocal last_ix  # this is necessary b/c we rebind the variable below and the compiler doesn't know it's closed over above?
         for ix, div in enumerate(primes[last_ix:]):
             if n % div == 0:

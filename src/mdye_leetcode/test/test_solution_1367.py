@@ -1,11 +1,10 @@
-# -*- coding: utf-8 -*-
 import sys
 from collections import deque
 from typing import List, Optional
 
 import pytest
 
-from mdye_leetcode.solution_1367 import Solution, ListNode, TreeNode
+from mdye_leetcode.solution_1367 import ListNode, Solution, TreeNode
 
 null = None
 
@@ -36,7 +35,6 @@ def array_to_treenode(arr: List[Optional[int]]) -> Optional[TreeNode]:
     def tn(
         ix: int, parents: List[Optional[TreeNode]], root: Optional[TreeNode]
     ) -> Optional[TreeNode]:
-
         if ix >= len(arr):
             return root
 
@@ -49,6 +47,7 @@ def array_to_treenode(arr: List[Optional[int]]) -> Optional[TreeNode]:
         nodes = [opt_node(n) for n in arr[ix:e]]
         nx = 0
         for p in non_null_parents:
+            assert p is not None  # should never be the case b/c we filtered them
             p.left = nodes[nx]
             p.right = nodes[nx + 1]
             nx += 2
@@ -59,11 +58,10 @@ def array_to_treenode(arr: List[Optional[int]]) -> Optional[TreeNode]:
 
 
 def treenode_to_array(root: TreeNode) -> List[Optional[int]]:
-    queue = deque([root])
+    queue: deque[Optional[TreeNode]] = deque([root])
     acc = []
 
     while queue:
-
         # really weird check, but it prevents accumulating trailing Nones so the output is like LeetCode's
         if all(e is None for e in queue):
             break
@@ -84,33 +82,29 @@ def test_array_to_treenode():
     arr = [1, 4, 4, null, 2, 2, null, 1, null, 6, 8, null, null, null, null, 1, 3]
 
     tn = array_to_treenode(arr)
+
+    assert tn is not None
     res_arr = treenode_to_array(tn)
 
     assert arr == res_arr
 
 
 def test_solution_1367_basic(sol: Solution):
-    assert sol.isSubPath(
+    assert sol.is_sub_path(
         array_to_listnode([4, 2, 8]),
-        array_to_treenode(
-            [1, 4, 4, null, 2, 2, null, 1, null, 6, 8, null, null, null, null, 1, 3]
-        ),
+        array_to_treenode([1, 4, 4, null, 2, 2, null, 1, null, 6, 8, null, null, null, null, 1, 3]),
     )
 
-    assert sol.isSubPath(
+    assert sol.is_sub_path(
         array_to_listnode([1, 4, 2, 6]),
-        array_to_treenode(
-            [1, 4, 4, null, 2, 2, null, 1, null, 6, 8, null, null, null, null, 1, 3]
-        ),
+        array_to_treenode([1, 4, 4, null, 2, 2, null, 1, null, 6, 8, null, null, null, null, 1, 3]),
     )
 
 
 def test_solution_1367_siblings(sol: Solution):
-    assert not sol.isSubPath(
+    assert not sol.is_sub_path(
         array_to_listnode([1, 4, 2, 6, 8]),
-        array_to_treenode(
-            [1, 4, 4, null, 2, 2, null, 1, null, 6, 8, null, null, null, null, 1, 3]
-        ),
+        array_to_treenode([1, 4, 4, null, 2, 2, null, 1, null, 6, 8, null, null, null, null, 1, 3]),
     )
 
 
@@ -123,7 +117,7 @@ def test_solution_1367_long(sol: Solution):
     # the solution doesn't need this, but the node builder does
     sys.setrecursionlimit(3600)
 
-    assert not sol.isSubPath(
+    assert not sol.is_sub_path(
         array_to_listnode(
             [
                 1,

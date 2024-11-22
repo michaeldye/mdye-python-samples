@@ -1,16 +1,19 @@
-# -*- coding: utf-8 -*-
+"""."""
+
 from abc import abstractmethod
 from typing import List
 
 
 class SolutionInterface:
     @abstractmethod
-    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+    def next_greater_element(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        """."""
         pass
 
 
 class Solution(SolutionInterface):
-    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+    def next_greater_element(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        """."""
         nums2_stack = []
         nums2_lookup = {}
 
@@ -25,8 +28,8 @@ class Solution(SolutionInterface):
 
 
 class SolutionNotAsSlow(SolutionInterface):
-    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
-
+    def next_greater_element(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        """."""
         # make nums1 hashmap for lookup as we iterate over nums2, eliminating the
         # quadratic time complexity
 
@@ -41,7 +44,7 @@ class SolutionNotAsSlow(SolutionInterface):
         # look at all elements in nums2 except in the worst case
 
         for ix, n2 in enumerate(nums2):
-            nx1 = nums1_lookup.get(n2, None)
+            nx1 = nums1_lookup.get(n2)
             if nx1 is not None:
                 # the value n2 is in nums1
 
@@ -57,7 +60,8 @@ class SolutionNotAsSlow(SolutionInterface):
 
 
 class SolutionSlow(SolutionInterface):
-    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+    def next_greater_element(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        """."""
         ans = []
 
         for n in nums1:

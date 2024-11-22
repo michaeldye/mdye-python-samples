@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import pytest
 
 from mdye_leetcode.solution_1281 import Solution
@@ -10,8 +9,8 @@ def sol():
 
 
 def test_solution_1281_basic(sol: Solution):
-    assert 15 == sol.subtractProductAndSum(234)
-    assert 21 == sol.subtractProductAndSum(4421)
+    assert sol.subtract_product_and_sum(234) == 15
+    assert sol.subtract_product_and_sum(4421) == 21
 
 
 # vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4
