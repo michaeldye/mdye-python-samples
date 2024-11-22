@@ -24,6 +24,7 @@ def _read_ints(expected_len: int) -> list[int]:
     assert len(d) == expected_len
     return d
 
+
 def _read_sets(expected_len: int) -> set[int]:
     # b/c we think this is faster than the list comp to set way
     raw_spl = input().split()
@@ -35,21 +36,22 @@ def _read_sets(expected_len: int) -> set[int]:
     return c
 
 
-sizes = _read_ints(2)
-n_size, m_size = sizes
+if __name__ == "__main__":
+    sizes = _read_ints(2)
+    n_size, m_size = sizes
 
-n_strs = input().split()
-a = _read_sets(m_size)
-b = _read_sets(m_size)
+    n_strs = input().split()
+    a = _read_sets(m_size)
+    b = _read_sets(m_size)
 
-happy = 0
+    happy = 0
 
-# do the counting
-for val in n_strs:
-    i = int(val)
-    if i in a:
-        happy += 1
-    if i in b:
-        happy -= 1
+    # do the counting
+    for val in n_strs:
+        i = int(val)
+        if i in a:
+            happy += 1
+        if i in b:
+            happy -= 1
 
-print(happy)
+    print(happy)
