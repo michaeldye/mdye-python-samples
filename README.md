@@ -10,7 +10,13 @@ practice sites.
 * [LeetCode](https://leetcode.com) solutions can be found in [src/mdye_leetcode](src/mdye_leetcode); unit tests are in [src/mdye_leetcode/test](src/mdye_leetcode/test)
 * [Project Euler](https://projecteuler.net) solutions can be found in [src/mdye_euler](src/mdye_euler); unit tests are in [src/mdye_euler/test](src/mdye_euler/test)
 
-Given appropriate setup, you can execute tests for all puzzles and code samples (followed by code linting) by invoking:
+### Set up a Python interpreter and Poetry
+
+All code assumes a recent version of Python, like 3.9.0 or newer. (See `pyproject.toml` for precise dependency declaration). It also requires the [Poetry](https://python-poetry.org/) packaging and dependency management system.
+
+### Invocation
+
+You can execute tests for all puzzles and code samples (followed by code linting) by invoking:
 
 ```shell
 $ make
@@ -46,23 +52,6 @@ Note that the following expect you've properly set up the project as described b
 
 * `poetry run new-solution --kind {leetcode,euler} --number {solution_number}`: Create a new solution (of the appropriate type) with a templated solution implementation module and `pytest` stub
 
-
-## Project Setup
-
-### Step 1: Set up a Python interpreter and Poetry
-
-All code assumes a recent version of Python, like 3.9.0 or newer. (See `pyproject.toml` for precise dependency declaration). It also requires the [Poetry](https://python-poetry.org/) packaging and dependency management system.
-
-### Step 2: Install poetry project dependencies
-
-```shell
-$ make install-deps
-
-...
-Successfully installed ...
-...
-Installing the current project: mdye-python-samples (0.1.0)
-```
 
 ## Test execution options
 
