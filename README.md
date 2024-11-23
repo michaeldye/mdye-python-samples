@@ -8,8 +8,8 @@ A repo of small Python code samples. Some are related to programming puzzle /
 practice sites.
 
 * [LeetCode](https://leetcode.com) solutions can be found in [src/mdye_leetcode](src/mdye_leetcode); unit tests are in [src/mdye_leetcode/test](src/mdye_leetcode/test)
-* [Project Euler](https://projecteuler.net) solutions can be found in [src/mdye_euler](src/mdye_euler); unit tests are in [src/mdye_euler/test](src/mdye_euler/test)
 + [HackerRank](https://www.hackerrank.com) solutions can be found in [src/mdye_hackerrank](src/mdye_hackerrank); unit tests are in [src/mdye_hackerrank/test](src/mdye_hackerrank/test)
+* [Project Euler](https://projecteuler.net) solutions can be found in [src/mdye_euler](src/mdye_euler); unit tests are in [src/mdye_euler/test](src/mdye_euler/test)
 
 ## Preconditions
 
