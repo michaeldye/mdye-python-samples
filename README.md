@@ -11,11 +11,11 @@ practice sites.
 * [Project Euler](https://projecteuler.net) solutions can be found in [src/mdye_euler](src/mdye_euler); unit tests are in [src/mdye_euler/test](src/mdye_euler/test)
 + [HackerRank]() solutions can be found in [src/mdye_hackerrank]; unit tests are in [src/mdye_hackerrank/test](src/mdye_hackerrank/test)
 
-### Set up a Python interpreter and Poetry
+## Preconditions
 
 All code assumes a recent version of Python, like 3.9.0 or newer. (See `pyproject.toml` for precise dependency declaration). It also requires the [Poetry](https://python-poetry.org/) packaging and dependency management system and GNU make.
 
-### Invocation
+## Use
 
 You can execute tests for all puzzles and code samples (followed by code linting) by invoking:
 
@@ -42,7 +42,9 @@ src/mdye_misc/test/test_sliding_window.py::test_avg_of_subarray_reuse_sum PASSED
 All checks passed!
 ```
 
-## Useful project management invocations
+## Miscellaneous
+
+### Useful project management invocations
 
 Note that the following expect you've properly set up the project as described below.
 
@@ -53,9 +55,9 @@ Note that the following expect you've properly set up the project as described b
 * `make inspect` (`all` / default): Do linting and tests
 * `make precommit`: Format code, execute tests, and do lint inspection
 
-## Test execution options
+### Test execution options
 
-### Specific puzzles
+#### Specific puzzles
 To execute tests for only a specific puzzle site, for example `leetcode` provide pytest with the project directory in which to search for tests:
 
 ```shell
@@ -73,14 +75,14 @@ src/mdye_leetcode/test/test_solution_1491.py::test_solution_1491_basic PASSED   
 ===================================================== 8 passed in 0.04s =========================
 ```
 
-### Pytest with stdout / stderr
+#### Pytest with stdout / stderr
 
 ```shell
 $ poetry run pytest -s ./src
 ...
 ```
 
-### Code Samples
+#### Code Samples
 
 To execute miscellaneous code samples (those in `mdye_misc`), execute modules directly with the necessary cli args. For example:
 
