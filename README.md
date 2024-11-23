@@ -9,35 +9,37 @@ practice sites.
 
 * [LeetCode](https://leetcode.com) solutions can be found in [src/mdye_leetcode](src/mdye_leetcode); unit tests are in [src/mdye_leetcode/test](src/mdye_leetcode/test)
 * [Project Euler](https://projecteuler.net) solutions can be found in [src/mdye_euler](src/mdye_euler); unit tests are in [src/mdye_euler/test](src/mdye_euler/test)
++ [HackerRank]() solutions can be found in [src/mdye_hackerrank]; unit tests are in [src/mdye_hackerrank/test](src/mdye_hackerrank/test)
 
 ### Set up a Python interpreter and Poetry
 
-All code assumes a recent version of Python, like 3.9.0 or newer. (See `pyproject.toml` for precise dependency declaration). It also requires the [Poetry](https://python-poetry.org/) packaging and dependency management system.
+All code assumes a recent version of Python, like 3.9.0 or newer. (See `pyproject.toml` for precise dependency declaration). It also requires the [Poetry](https://python-poetry.org/) packaging and dependency management system and GNU make.
 
 ### Invocation
 
 You can execute tests for all puzzles and code samples (followed by code linting) by invoking:
 
 ```shell
-$ make
-++ pytest
-================================================ test session starts ============================
-platform linux -- Python 3.9.13, pytest-7.1.3, pluggy-1.0.0
-rootdir: /home/mdye/projects/mdye-python-samples, configfile: pyproject.toml
-collected 12 items                                                                                
-
-src/mdye_euler/test/test_solution_1.py::test_solution PASSED                               [  8%]
+mdye@ayer:mdye-python-samples[82732]# make
+++ install-deps
 ...
-src/mdye_leetcode/test/test_solution_1060.py::test_solution_1060_basic PASSED              [ 41%]
-..
-src/mdye_leetcode/test/test_solution_823.py::test_solution_823_deep PASSED                 [100%]
 
-================================================= 12 passed in 0.12s ============================
-++ pylint
+Installing the current project: mdye-python-samples (0.1.0)
+++ pytest
+====================================== test session starts =======================================
+platform linux -- Python 3.12.7, pytest-8.3.3, pluggy-1.5.0
+rootdir: /home/mdye/projects/mdye-python-samples
+configfile: pyproject.toml
+collected 51 items
 
---------------------------------------------------------------------
-Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
+src/mdye_euler/test/test_solution1.py::test_solution PASSED                                [  1%]
+src/mdye_euler/test/test_solution_2.py::test_solution PASSED                               [  3%]
+...
+src/mdye_misc/test/test_sliding_window.py::test_avg_of_subarray_reuse_sum PASSED           [100%]
 
+======================================= 51 passed in 0.26s =======================================
+++ lint
+All checks passed!
 ```
 
 ## Useful project management invocations
@@ -45,13 +47,11 @@ Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
 Note that the following expect you've properly set up the project as described below.
 
 * `make test`: Execute all test in the system; note that CI will reject PRs if tests fail
-* `make format`: Format all code with `black`
-* `make lint`: Lint code with `pylint`; note that CI will reject PRs if the codebase receives a lower pylint score than the `main` branch last had
+* `make format`: Format all code with `ruff`
+* `make lint`: Lint code with `ruff`
+* `make fix`: Do safe fixes suggested by `ruff`
 * `make inspect` (`all` / default): Do linting and tests
 * `make precommit`: Format code, execute tests, and do lint inspection
-
-* `poetry run new-solution --kind {leetcode,euler} --number {solution_number}`: Create a new solution (of the appropriate type) with a templated solution implementation module and `pytest` stub
-
 
 ## Test execution options
 
@@ -64,7 +64,7 @@ $ poetry run pytest ./src/mdye_leetcode
 ================================================ test session starts ============================
 platform linux -- Python 3.9.13, pytest-7.1.3, pluggy-1.0.0
 rootdir: /home/mdye/projects/mdye-python-samples, configfile: pyproject.toml
-collected 8 items                                                                                
+collected 8 items
 
 src/mdye_leetcode/test/test_solution_1060.py::test_solution_5_basic PASSED                 [ 12%]
 src/mdye_leetcode/test/test_solution_1491.py::test_solution_1491_basic PASSED              [ 25%]
@@ -73,7 +73,7 @@ src/mdye_leetcode/test/test_solution_1491.py::test_solution_1491_basic PASSED   
 ===================================================== 8 passed in 0.04s =========================
 ```
 
-### Pytest with stdout
+### Pytest with stdout / stderr
 
 ```shell
 $ poetry run pytest -s ./src
