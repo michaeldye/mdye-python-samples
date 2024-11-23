@@ -17,10 +17,10 @@ All code assumes a recent version of Python, like 3.9.0 or newer. (See `pyprojec
 
 ## Use
 
-You can execute tests for all puzzles and code samples (followed by code linting) by invoking:
+You can execute tests for all puzzles and code samples (followed by code linting) by invoking `make`:
 
 ```shell
-mdye@ayer:mdye-python-samples[82732]# make
+$ make
 ++ install-deps
 ...
 
