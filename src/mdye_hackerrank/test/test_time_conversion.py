@@ -1,7 +1,6 @@
 """."""
 
 import os
-import shutil
 from pathlib import Path
 
 from mdye_hackerrank.testing_support import OutputFileWriter, StdinExecutor
