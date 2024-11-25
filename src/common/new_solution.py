@@ -114,18 +114,20 @@ class SolutionContent:
                 f'{_indent}raise AssertionError("Unimplemented")',
             ]
 
-        elif kind == SolutionKind.HACKERRANK:
+        elif (
+            kind == SolutionKind.HACKERRANK
+        ):  # TODO: differentiate those that write to output files and those that send stdout
             lines += [
-                "from mdye_hackerrank.testing_support import StdinExecutor",
+                "from mdye_hackerrank.testing_support import OutputFileWriter, StdinExecutor",
                 "",
                 "",
-                f"class Test{to_camel(name)}(StdinExecutor):",
-                f"{_indent}@classmethod",
-                f"{_indent}def setup_method(cls) -> None:",
-                f'{_indent}{_indent}cls.module = cls.from_mdye_hackerrank("solution_{name}.py")',
+                f"class Test{to_camel(name)}(StdinExecutor, OutputFileWriter):",
                 "",
                 f"{_indent}def test_{name}_basic(self) -> None:",
-                f'{_indent}{_indent}raise AssertionError("Unimplemented")',
+                f'{_indent}{_indent}sin = r""""""' "",
+                f'{_indent}{_indent}self.exec(self.from_mdye_hackerrank("solution_{name}.py"), sin)',
+                "",
+                f'{_indent}{_indent}assert self._read_val() == "foo"',
             ]
 
         lines += [

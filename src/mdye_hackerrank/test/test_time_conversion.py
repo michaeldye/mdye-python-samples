@@ -3,32 +3,20 @@
 import os
 import shutil
 from pathlib import Path
-from tempfile import mkdtemp
 
-from mdye_hackerrank.testing_support import StdinExecutor
+from mdye_hackerrank.testing_support import OutputFileWriter, StdinExecutor
 
 
-class TestTimeConversion(StdinExecutor):
-    envvar_name = "OUTPUT_PATH"
+class TestTimeConversion(StdinExecutor, OutputFileWriter):
+    output_envvar = "OUTPUT_PATH"
 
-    @classmethod
-    def setup_method(cls) -> None:
-        cls.module = cls.from_mdye_hackerrank("solution_time_conversion.py")
-        cls.tmpdir = mkdtemp()
+    def setup_method(self) -> None:
+        super().setup_method()
 
-        tmpfile = Path(cls.tmpdir, "out")
-        os.environ[cls.envvar_name] = str(tmpfile)
+        self.module = self.from_mdye_hackerrank("solution_time_conversion.py")
 
-    @classmethod
-    def teardown_method(cls) -> None:
-        if cls.tmpdir is not None:
-            shutil.rmtree(cls.tmpdir)
-
-        os.environ.pop(cls.envvar_name)
-
-    def _read_val(self) -> str:
-        with Path(os.environ[self.envvar_name]).open("r", encoding="utf-8") as inf:
-            return inf.readlines()[0].rstrip()
+        tmpfile = Path(self.tmpdir, "out")
+        os.environ[self.output_envvar] = str(tmpfile)
 
     def test_time_conversion_basic(self) -> None:
         self.exec(self.module, "07:05:45PM")
