@@ -35,4 +35,9 @@ class StdinExecutor:
             stdout=subprocess.PIPE,
             stderr=sys.stderr,
         )
+
+        if p.returncode != 0:
+            n = Path(module_path).name
+            raise AssertionError(f"Module named {n} exited with non-zero code: {p.returncode}")
+
         return p.stdout.strip()
