@@ -11,22 +11,37 @@ _indent = "    "
 _vim_modeline = "# vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4"
 
 
+def to_camel(snake_case: str) -> str:
+    """."""
+    nd = snake_case.split("_")
+    assert len(nd) > 0
+
+    def j(*parts: str) -> str:
+        return "".join(parts)
+
+    def cap(word: str) -> str:
+        return j(word[0].upper(), word[1:])
+
+    return j(*[cap(w) for w in nd])
+
+
 class SolutionKind(Enum):
     EULER = "euler"
     LEETCODE = "leetcode"
+    HACKERRANK = "hackerrank"
 
 
 class SolutionContent:
-    def __init__(self, mod_dir: Path, kind: SolutionKind, number: int):
+    def __init__(self, mod_dir: Path, kind: SolutionKind, name: str):
         """."""
         self._kind = kind
-        self._number = number
+        self._name = name
 
-        self._impl_outp = Path(mod_dir, f"solution_{number}.py")
-        self._test_outp = Path(mod_dir, "test", f"test_solution_{number}.py")
+        self._impl_outp = Path(mod_dir, f"solution_{name}.py")
+        self._test_outp = Path(mod_dir, "test", f"test_{name}.py")
 
-        self._impl_content = self._render_templ(self._impl_templ())
-        self._test_content = self._render_templ(self._test_templ(self._kind, self._number))
+        self._impl_content = self._render_templ(self._impl_templ(self._kind))
+        self._test_content = self._render_templ(self._test_templ(self._kind, self._name))
 
     def write(self) -> None:
         """."""
@@ -47,26 +62,37 @@ class SolutionContent:
         return os.linesep.join(lines)
 
     @classmethod
-    def _impl_templ(cls) -> List[str]:
-        return [
-            "",
-            "class Solution:",
-            f"{_indent}pass",
+    def _impl_templ(cls, kind: SolutionKind) -> List[str]:
+        lines = ['"""."""', "", "import sys", ""]
+
+        if kind == SolutionKind.HACKERRANK:
+            lines += ['if __name__ == "__main__":', f"{_indent}sys.exit(4)"]
+        else:
+            lines += [
+                "",
+                "class Solution:",
+                f"{_indent}pass",
+            ]
+
+        lines += [
             "",
             "",
             _vim_modeline,
             "",
         ]
 
-    @classmethod
-    def _test_templ(cls, kind: SolutionKind, solnum: int) -> List[str]:
-        lines = []
+        return lines
 
-        lines += ["", "import pytest", ""]
+    @classmethod
+    def _test_templ(cls, kind: SolutionKind, name: str) -> List[str]:
+        lines = ['"""."""', ""]
+
+        # N.B. if this templating gets much more silly we need to switch to a
+        # proper language generator
 
         if kind == SolutionKind.LEETCODE:
             lines += [
-                f"from mdye_{kind.value}.solution_{solnum} import Solution",
+                f"from mdye_{kind.value}.solution_{name} import Solution",
                 "",
                 "",
                 "# makes a Solution object b/c that's how leetcode rolls",
@@ -75,16 +101,31 @@ class SolutionContent:
                 f"{_indent}yield Solution()",
                 "",
                 "",
-                f"def test_solution_{solnum}_basic(sol: Solution):",
-                f"{_indent}assert False",
+                f"def test_solution_{name}_basic(sol: Solution):",
+                f'{_indent}raise AssertionError("Unimplemented")',
             ]
 
         elif kind == SolutionKind.EULER:
             lines += [
-                f"from mdye_{kind.value}.solution_{solnum} import solve",
+                f"from mdye_{kind.value}.solution_{name} import solve",
+                "",
                 "",
                 "def test_solution():",
-                f"{_indent}tassert False",
+                f'{_indent}raise AssertionError("Unimplemented")',
+            ]
+
+        elif kind == SolutionKind.HACKERRANK:
+            lines += [
+                "from mdye_hackerrank.testing_support import StdinExecutor",
+                "",
+                "",
+                f"class Test{to_camel(name)}(StdinExecutor):",
+                f"{_indent}@classmethod",
+                f"{_indent}def setup_method(cls) -> None:",
+                f'{_indent}{_indent}cls.module = cls.from_mdye_hackerrank("solution_{name}.py")',
+                "",
+                f"{_indent}def test_{name}_basic(self) -> None:",
+                f'{_indent}{_indent}raise AssertionError("Unimplemented")',
             ]
 
         lines += [
@@ -103,7 +144,7 @@ class SolutionContent:
             )
 
         return str(
-            f"{self._kind=}, {self._number=}, {self._impl_outp=}, {self._test_outp=}"
+            f"{self._kind=}, {self._name=}, {self._impl_outp=}, {self._test_outp=}"
             f"\n{_content_with_seps('implementation file content', self._impl_content)}"
             f"\n{_content_with_seps('test file content', self._test_content)}"
         )
@@ -121,14 +162,21 @@ def main() -> None:
         type=str,
         required=True,
     )
-    parser.add_argument("-n", "--number", action="store", type=int, required=True)
+    parser.add_argument(
+        "-sn",
+        "--snake-case-name",
+        action="store",
+        type=str,
+        required=True,
+        help="Python module-safe name w/ underscores",
+    )
 
     args = parser.parse_args()
     kind = SolutionKind(args.kind)
 
     mod_dir = Path(Path(__file__).parent, "..", f"mdye_{kind.value}").resolve()
 
-    content = SolutionContent(mod_dir, kind, args.number)
+    content = SolutionContent(mod_dir, kind, args.snake_case_name)
     content.write()
 
     sys.exit(0)

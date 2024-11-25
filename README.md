@@ -46,7 +46,7 @@ All checks passed!
 
 ### Useful project management invocations
 
-Note that the following expect you've properly set up the project as described below.
+Note that the following expect you've properly set up the project as described above.
 
 * `make test`: Execute all test in the system; note that CI will reject PRs if tests fail
 * `make format`: Format all code with `ruff`
@@ -54,6 +54,8 @@ Note that the following expect you've properly set up the project as described b
 * `make fix`: Do safe fixes suggested by `ruff`
 * `make inspect` (`all` / default): Do linting and tests
 * `make precommit`: Format code, execute tests, and do lint inspection
+
+* `poetry run new-solution -k {kind} -sn {snake_case_name}`: Create a new challenge file and corresponding test file by kind (one of `hackerrank`, `euler`, or `leetcode`.
 
 ### Test execution options
 
