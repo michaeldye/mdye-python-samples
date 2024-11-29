@@ -4,10 +4,6 @@ from mdye_hackerrank.testing_support import StdinExecutor
 
 
 class TestPySetAdd(StdinExecutor):
-    @classmethod
-    def setup_method(cls) -> None:
-        cls.module = cls.from_mdye_hackerrank("py_set_add.py")
-
     def test_py_set_add(self) -> None:
         input_lines = dedent(r"""7
                            UK
@@ -18,4 +14,4 @@ class TestPySetAdd(StdinExecutor):
                            UK
                            France""")
 
-        assert self.exec(self.module, input_lines) == "5"
+        assert self.exec(self.from_mdye_hackerrank("py_set_add.py"), input_lines) == "5"
