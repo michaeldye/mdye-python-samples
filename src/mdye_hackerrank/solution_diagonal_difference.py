@@ -11,16 +11,15 @@ def _diagonal_difference(arr: list[list[int]]) -> int:
             res.append(arr[x][y])
         return res
 
-
     l_coords = []
     for v in range(len(arr)):
-        l_coords.append((v,v))
+        l_coords.append((v, v))
 
     r_coords = []
     for ix in range(len(arr)):
         x = ix
         y = len(arr) - ix - 1
-        r_coords.append((x,y))
+        r_coords.append((x, y))
 
     print(f"{l_coords=}, {r_coords=}", file=sys.stderr)
 

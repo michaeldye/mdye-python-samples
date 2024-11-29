@@ -4,7 +4,6 @@ from mdye_hackerrank.testing_support import OutputFileWriter, StdinExecutor
 
 
 class TestDiagonalDifference(StdinExecutor, OutputFileWriter):
-
     def test_diagonal_difference_basic(self) -> None:
         sin = r"""3
                   11 2 4
