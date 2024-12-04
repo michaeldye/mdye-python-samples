@@ -63,9 +63,18 @@ class OutputFileWriter:
 
         os.environ.pop(self.output_envvar)
 
-    def _read_val(self) -> str:
+    def _read_output_lines(self, stripped: bool = False) -> list[str]:
         with Path(os.environ[self.output_envvar]).open("r", encoding="utf-8") as inf:
-            return inf.readlines()[0].rstrip()
+            lines = inf.readlines()
+
+            if stripped:
+                return [line.strip() for line in lines]
+            return lines
+
+    def _read_val(self) -> str:
+        lines = self._read_output_lines()
+        assert len(lines) == 1
+        return lines[0].rstrip()
 
 
 # vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4
