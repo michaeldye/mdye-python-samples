@@ -74,7 +74,7 @@ class OutputFileWriter:
     def _read_val(self) -> str:
         lines = self._read_output_lines()
         assert len(lines) == 1
-        return lines[0].rstrip()
+        return lines[0].strip()
 
 
 # vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4
